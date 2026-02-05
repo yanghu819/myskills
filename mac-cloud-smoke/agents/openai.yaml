@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mac Cloud Smoke"
+  short_description: "Mac local to cloud GPU smoke and fast iteration workflow"
+  default_prompt: "Run the mac-to-cloud GPU smoke workflow with SSH key login, minimal deps, and the shortest runnable command."
