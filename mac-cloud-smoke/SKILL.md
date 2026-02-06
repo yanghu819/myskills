@@ -1,44 +1,69 @@
 ---
 name: mac-cloud-smoke
-description: AutoDL/SSH 只做公钥对接；后续我在云端用 uv 最小跑通。
+description: AutoDL/SSH 只做公钥；本地下载依赖/HF缓存 -> 上云；云端用 uv venv 跑 smoke。
 ---
 
 # AutoDL Smoke
 
-## 0. AutoDL 一键（只做公钥）
+## 公钥（AutoDL 一键）
 
 把 `mac-cloud-smoke/autodl.sh` 的内容粘进 AutoDL 的一键脚本执行即可。
 
-## 1. 你只需要给我
+## 默认套路（极简）
 
-- SSH 命令（例：`ssh -p 25458 root@connect.xxx.com`）
-- repo URL
-- 你要跑通的“最短命令”（README 里那条）
+- 本地：下载 HF cache + wheelhouse（可选）-> rsync 上云
+- 云端：uv venv -> `HF_*_OFFLINE=1` -> 跑最短命令
 
-## 2. 我默认流程（云端）
+## 经验/坑（只记结论）
 
-- conda：`. ~/miniconda3/etc/profile.d/conda.sh && conda activate base`
-- uv：`curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH=$HOME/.local/bin:$PATH`
-- 安装：优先 `uv pip install -e .` / `uv pip install -r requirements.txt`
-- 跑最短命令
+- uv 安装：`curl https://astral.sh/uv/install.sh` 在 AutoDL 偶发 HTTP/2 报错 -> 用 `python -m pip install -U uv`
+- HF：云端网络不稳 -> 本地先下 `HF_HUB_CACHE`/`HF_DATASETS_CACHE`，rsync 上云后 `HF_*_OFFLINE=1`
+- `lm_eval`：import 阶段触发 `evaluate.load(...)` 会联网卡住 -> 改成 lazy load（不在 import 时 load）
+- `transformers>=5` + `torch<2.6` + `pytorch_model.bin` 会被拦 -> 用 `model.safetensors` 的模型（例：`hf-internal-testing/tiny-random-gpt2`）或升 torch>=2.6
+- `checkpoint_name`：有的 fork 会先用默认 `pretrained=gpt2` 读 config -> 离线必挂 -> 把 `checkpoint_name` 提前到 `_get_config` 前
 
-## 例：prefix-linear-attention（最小跑通）
+## 本地（HF cache + wheelhouse -> 上云）
 
 ```bash
-cd ~
-rm -rf prefix-linear-attention prefix-linear-attention-main pla.zip
-curl -L -o pla.zip https://codeload.github.com/HazyResearch/prefix-linear-attention/zip/refs/heads/main
-unzip -q pla.zip
-mv prefix-linear-attention-main prefix-linear-attention
+ASSETS=~/Downloads/autodl-assets
+mkdir -p $ASSETS/hf $ASSETS/wheelhouse
 
-. ~/miniconda3/etc/profile.d/conda.sh
-conda activate base
-curl -LsSf https://astral.sh/uv/install.sh | sh
-export PATH=$HOME/.local/bin:$PATH
+uv venv $ASSETS/.venv
+. $ASSETS/.venv/bin/activate
+uv pip install -U huggingface_hub datasets
+
+HF_HOME=$ASSETS/hf python - <<'PY'
+import os
+from huggingface_hub import snapshot_download
+from datasets import load_dataset
+hf=os.environ["HF_HOME"]
+snapshot_download("hf-internal-testing/tiny-random-gpt2", cache_dir=hf)
+load_dataset("super_glue","boolq", cache_dir=f"{hf}/datasets")
+PY
+
+# wheelhouse（真要离线装包再用；注意 platform=linux）
+python3 -m pip download -d $ASSETS/wheelhouse \
+  --platform manylinux2014_x86_64 --python-version 312 --implementation cp --abi cp312 \
+  --only-binary=:all: transformers==4.42.3
+
+rsync -avP -e "ssh -i ~/.ssh/autodl_ed25519 -p 25458" $ASSETS/hf/ root@connect.bjb1.seetacloud.com:~/hf/
+rsync -avP -e "ssh -i ~/.ssh/autodl_ed25519 -p 25458" $ASSETS/wheelhouse/ root@connect.bjb1.seetacloud.com:~/wheelhouse/
+```
+
+## 云端（uv venv + 离线跑 smoke）
+
+```bash
+UV=/root/miniconda3/bin/uv
+PY=/root/miniconda3/bin/python
+$UV venv -p $PY --system-site-packages --clear ~/pla-venv
+. ~/pla-venv/bin/activate
+
+export HF_HUB_CACHE=$HOME/hf
+export HF_DATASETS_CACHE=$HOME/hf/datasets
+export HF_HUB_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
+export TOKENIZERS_PARALLELISM=false
 
 cd ~/prefix-linear-attention/lm-eval-harness
-uv pip install -e .
-
-export HF_HOME=$HOME/autodl-tmp/hf
-lm_eval --model hf-auto --model_args checkpoint_name=gpt2 --tasks boolq --device cuda:0 --batch_size 1 --limit 1 --output_path $HOME/autodl-tmp/pla_out
+python -u -m lm_eval --verbosity INFO --model hf-auto --model_args checkpoint_name=hf-internal-testing/tiny-random-gpt2 --tasks boolq --device cuda:0 --batch_size 1 --limit 1 --output_path $HOME/autodl-tmp/pla_out
 ```
