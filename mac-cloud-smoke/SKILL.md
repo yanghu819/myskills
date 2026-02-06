@@ -1,9 +1,17 @@
 ---
 name: mac-cloud-smoke
-description: mac 本地开发后，将代码在云端 GPU（AutoDL/Runpod/通用 SSH 主机）做最小冒烟与快速迭代的流程。用于需要本地→云端迁移、SSH 公钥登录、最小依赖安装与最短跑通命令的场景。
+description: mac 本地→云端 GPU（AutoDL/Runpod/通用 SSH 主机）最小冒烟 + 快速迭代。只给最短可复制执行命令。
 ---
 
 # Mac→Cloud Smoke
+
+## Inputs（环境变量）
+
+mac：
+- `AUTODL_HOST` `AUTODL_PORT` `AUTODL_USER` `AUTODL_KEY`
+
+cloud：
+- `CONDA_PREFIX`（AutoDL 常见：`/root/miniconda3` 或 `/usr/local/miniconda3`）
 
 ## Workflow
 
@@ -21,15 +29,46 @@ description: mac 本地开发后，将代码在云端 GPU（AutoDL/Runpod/通用
 
 5. 云端实例准备  
 确认 GPU：`nvidia-smi`。  
-AutoDL 优先使用 conda：`/usr/local/miniconda3` + `py312`。  
-无 conda 则用系统 `python3`。
+优先用 conda（AutoDL 常见：`/root/miniconda3` 或 `/usr/local/miniconda3`）。
 
 6. 云端冒烟  
 用 SSH 执行最短命令，缺依赖就 `pip install` 最小集合。
 
 ```bash
-ssh -i KEY -p PORT user@host "bash -lc 'source /usr/local/miniconda3/etc/profile.d/conda.sh && conda activate py312 && cd /root && if [ ! -d REPO ]; then git clone REPO_URL REPO; fi; cd REPO && python -m pip install -q numpy scipy networkx tqdm && python train.py --epochs 5 ...'"
+ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" "bash -lc '
+. $CONDA_PREFIX/etc/profile.d/conda.sh
+conda activate base
+cd ~
+git clone REPO_URL REPO
+cd REPO
+python -m pip install -q -U pip
+python -m pip install -q numpy scipy networkx tqdm
+python train.py --epochs 5 ...
+'"
 ```
 
 7. 结果回传与迭代  
 收集 stdout 和日志文件（如 `log.txt`），只改命令参数快速迭代。
+
+## 快速迭代（mac→cloud）
+
+```bash
+rsync -az --delete -e "ssh -i $AUTODL_KEY -p $AUTODL_PORT" ./ "$AUTODL_USER@$AUTODL_HOST:~/REPO/"
+ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" "bash -lc '. $CONDA_PREFIX/etc/profile.d/conda.sh && conda activate base && cd ~/REPO && python train.py ...'"
+```
+
+## Graph-MLP（AutoDL 已跑通）
+
+cloud（4090 / torch 2.5.1+cu124 / python 3.12）：
+
+```bash
+cd ~
+rm -rf Graph-MLP Graph-MLP.zip
+curl -L -o Graph-MLP.zip https://codeload.github.com/yanghu819/Graph-MLP/zip/refs/heads/master
+unzip -q Graph-MLP.zip
+mv Graph-MLP-master Graph-MLP
+cd Graph-MLP
+python -m pip install -q scipy
+python train.py --epochs 5 --lr=0.001 --weight_decay=5e-3 --data=cora --alpha=10.0 --hidden=256 --batch_size=2000 --order=2 --tau=2
+tail -n 5 log.txt
+```
