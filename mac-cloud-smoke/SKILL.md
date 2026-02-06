@@ -1,47 +1,52 @@
 ---
 name: mac-cloud-smoke
-description: Mac→云端 GPU（AutoDL/Runpod/SSH）通用最小冒烟 + 快速迭代：只关心 REPO_URL / INSTALL_CMD / RUN_CMD。
+description: Mac→云端 GPU（AutoDL/Runpod/SSH）通用最小冒烟 + 快速迭代：只跑 `~/Downloads/autodl.sh`。
 ---
 
-# Mac→Cloud Smoke（通用）
+# Mac→Cloud Smoke（极简）
 
-## 变量（mac 只填一次）
-- `AUTODL_HOST` `AUTODL_PORT` `AUTODL_USER` `AUTODL_KEY`
-- `CONDA_PREFIX`（AutoDL 常见：`/root/miniconda3` 或 `/usr/local/miniconda3`）
-
-## 变量（每个 repo 填）
-- `REPO_URL` `REPO_DIR`
-- `INSTALL_CMD`（例：`python -m pip install -r requirements.txt` / `python -m pip install -e .`）
-- `RUN_CMD`（最短可跑命令）
-
-## 一键冒烟（mac 执行）
+## 0. 拉脚本（一次）
 
 ```bash
-ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" bash -lc "
-set -e
-nvidia-smi
-. $CONDA_PREFIX/etc/profile.d/conda.sh
-conda activate base
-cd ~
-[ -d $REPO_DIR ] || git clone --depth 1 $REPO_URL $REPO_DIR
-cd $REPO_DIR
-python -m pip install -q -U pip
-bash -lc \"$INSTALL_CMD\"
-bash -lc \"$RUN_CMD\"
-"
+curl -L -o ~/Downloads/autodl.sh https://raw.githubusercontent.com/yanghu819/myskills/main/mac-cloud-smoke/autodl.sh
+chmod +x ~/Downloads/autodl.sh
 ```
 
-## 快速迭代（本地改代码→云端跑）
+## 1. 连接变量（一次）
 
 ```bash
-rsync -az --delete --exclude .git -e "ssh -i $AUTODL_KEY -p $AUTODL_PORT" ./ "$AUTODL_USER@$AUTODL_HOST:~/$REPO_DIR/"
-ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" bash -lc ". $CONDA_PREFIX/etc/profile.d/conda.sh && conda activate base && cd ~/$REPO_DIR && bash -lc \"$RUN_CMD\""
+export AUTODL_HOST=connect.xxx.com
+export AUTODL_PORT=25458
+export AUTODL_USER=root
+export AUTODL_KEY=~/.ssh/autodl_ed25519
+export CONDA_PREFIX=/root/miniconda3
+export CONDA_ENV=base
+```
+
+```bash
+ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" nvidia-smi
+```
+
+## 2. 冒烟（每个 repo 填）
+
+```bash
+export REPO_URL=https://github.com/OWNER/REPO.git
+export REPO_REF=main
+export INSTALL_CMD='python -m pip install -r requirements.txt'
+export RUN_CMD='python train.py --epochs 1'
+AUTODL_ACTION=smoke bash ~/Downloads/autodl.sh
+```
+
+## 3. 快速迭代（本地改代码→云端跑）
+
+```bash
+export LOCAL_DIR=.
+AUTODL_ACTION=sync_run bash ~/Downloads/autodl.sh
 ```
 
 ## git clone 不稳（可选）
 
 ```bash
-# GitHub repo：
-# curl -L -o repo.zip https://codeload.github.com/OWNER/REPO/zip/refs/heads/BRANCH
-# unzip -q repo.zip
+export REPO_ZIP=1
+AUTODL_ACTION=smoke bash ~/Downloads/autodl.sh
 ```
