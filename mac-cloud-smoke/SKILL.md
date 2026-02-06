@@ -1,52 +1,44 @@
 ---
 name: mac-cloud-smoke
-description: Mac→云端 GPU（AutoDL/Runpod/SSH）通用最小冒烟 + 快速迭代：只跑 `~/Downloads/autodl.sh`。
+description: AutoDL/SSH 只做公钥对接；后续我在云端用 uv 最小跑通。
 ---
 
-# Mac→Cloud Smoke（极简）
+# AutoDL Smoke
 
-## 0. 拉脚本（一次）
+## 0. AutoDL 一键（只做公钥）
 
-```bash
-curl -L -o ~/Downloads/autodl.sh https://raw.githubusercontent.com/yanghu819/myskills/main/mac-cloud-smoke/autodl.sh
-chmod +x ~/Downloads/autodl.sh
-```
+把 `mac-cloud-smoke/autodl.sh` 的内容粘进 AutoDL 的一键脚本执行即可。
 
-## 1. 连接变量（一次）
+## 1. 你只需要给我
 
-```bash
-export AUTODL_HOST=connect.xxx.com
-export AUTODL_PORT=25458
-export AUTODL_USER=root
-export AUTODL_KEY=~/.ssh/autodl_ed25519
-export CONDA_PREFIX=/root/miniconda3
-export CONDA_ENV=base
-```
+- SSH 命令（例：`ssh -p 25458 root@connect.xxx.com`）
+- repo URL
+- 你要跑通的“最短命令”（README 里那条）
 
-```bash
-ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" nvidia-smi
-```
+## 2. 我默认流程（云端）
 
-## 2. 冒烟（每个 repo 填）
+- conda：`. ~/miniconda3/etc/profile.d/conda.sh && conda activate base`
+- uv：`curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH=$HOME/.local/bin:$PATH`
+- 安装：优先 `uv pip install -e .` / `uv pip install -r requirements.txt`
+- 跑最短命令
+
+## 例：prefix-linear-attention（最小跑通）
 
 ```bash
-export REPO_URL=https://github.com/OWNER/REPO.git
-export REPO_REF=main
-export INSTALL_CMD='uv pip install -r requirements.txt'
-export RUN_CMD='python train.py --epochs 1'
-AUTODL_ACTION=smoke bash ~/Downloads/autodl.sh
-```
+cd ~
+rm -rf prefix-linear-attention prefix-linear-attention-main pla.zip
+curl -L -o pla.zip https://codeload.github.com/HazyResearch/prefix-linear-attention/zip/refs/heads/main
+unzip -q pla.zip
+mv prefix-linear-attention-main prefix-linear-attention
 
-## 3. 快速迭代（本地改代码→云端跑）
+. ~/miniconda3/etc/profile.d/conda.sh
+conda activate base
+curl -LsSf https://astral.sh/uv/install.sh | sh
+export PATH=$HOME/.local/bin:$PATH
 
-```bash
-export LOCAL_DIR=.
-AUTODL_ACTION=sync_run bash ~/Downloads/autodl.sh
-```
+cd ~/prefix-linear-attention/lm-eval-harness
+uv pip install -e .
 
-## git clone 不稳（可选）
-
-```bash
-export REPO_ZIP=1
-AUTODL_ACTION=smoke bash ~/Downloads/autodl.sh
+export HF_HOME=$HOME/autodl-tmp/hf
+lm_eval --model hf-auto --model_args checkpoint_name=gpt2 --tasks boolq --device cuda:0 --batch_size 1 --limit 1 --output_path $HOME/autodl-tmp/pla_out
 ```
