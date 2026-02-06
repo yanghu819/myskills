@@ -16,6 +16,12 @@ description: AutoDL/SSH 只做公钥；本地下载依赖/HF缓存 -> 上云；�
 
 ## 经验/坑（只记结论）
 
+
+- `fla-hub/gla-*`：需要 `fla`（flash-linear-attention）；`transformers==4.48.2` 更匹配
+- `triton`：云端下载慢 -> Mac 本地 `pip download triton==3.2.0 --platform manylinux2014_x86_64 --python-version 312` 再 rsync，上云 `uv pip --no-index` 安装
+- `torch.compile`：`triton==3.2.0` + `torch==2.5.1` 可能触发 inductor 导入报错 -> 跑 eval 时加 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
+- GLA 冒烟（离线）：`checkpoint_name=fla-hub/gla-340M-15B` + `tasks based_fda` + `--limit 1`
+
 - uv 安装：`curl https://astral.sh/uv/install.sh` 在 AutoDL 偶发 HTTP/2 报错 -> 用 `python -m pip install -U uv`
 - HF：云端网络不稳 -> 本地先下 `HF_HUB_CACHE`/`HF_DATASETS_CACHE`，rsync 上云后 `HF_*_OFFLINE=1`
 - `lm_eval`：import 阶段触发 `evaluate.load(...)` 会联网卡住 -> 改成 lazy load（不在 import 时 load）
