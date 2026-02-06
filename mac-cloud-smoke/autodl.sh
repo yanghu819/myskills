@@ -91,7 +91,7 @@ RUN_CMD="$RUN_CMD"
 . \$CONDA_PREFIX/etc/profile.d/conda.sh
 conda activate \$CONDA_ENV
 
-cd ~\/\$REPO_DIR
+cd ~/\$REPO_DIR
 bash -lc "\$RUN_CMD"
 SH_REMOTE
   exit 0
