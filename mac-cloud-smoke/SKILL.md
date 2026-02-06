@@ -1,38 +1,19 @@
 ---
 name: mac-cloud-smoke
-description: AutoDL/SSH 只做公钥；本地下载依赖/HF缓存 -> 上云；云端用 uv venv 跑 smoke。
+description: AutoDL 单卡冒烟：本机下载(HF+wheel) -> rsync 上云；云端用 uv venv 离线跑；日志用 swanlab。
 ---
 
-# AutoDL Smoke
+# Mac -> AutoDL Smoke
 
-## 公钥（AutoDL 一键）
+## 0) AutoDL 一键（只做公钥）
 
 把 `mac-cloud-smoke/autodl.sh` 的内容粘进 AutoDL 的一键脚本执行即可。
 
-## 默认套路（极简）
-
-- 本地：下载 HF cache + wheelhouse（可选）-> rsync 上云
-- 云端：uv venv -> `HF_*_OFFLINE=1` -> 跑最短命令
-
-## 经验/坑（只记结论）
-
-
-- `fla-hub/gla-*`：需要 `fla`（flash-linear-attention）；`transformers==4.48.2` 更匹配
-- `triton`：云端下载慢 -> Mac 本地 `pip download triton==3.2.0 --platform manylinux2014_x86_64 --python-version 312` 再 rsync，上云 `uv pip --no-index` 安装
-- `torch.compile`：`triton==3.2.0` + `torch==2.5.1` 可能触发 inductor 导入报错 -> 跑 eval 时加 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
-- GLA 冒烟（离线）：`checkpoint_name=fla-hub/gla-340M-15B` + `tasks based_fda` + `--limit 1`
-
-- uv 安装：`curl https://astral.sh/uv/install.sh` 在 AutoDL 偶发 HTTP/2 报错 -> 用 `python -m pip install -U uv`
-- HF：云端网络不稳 -> 本地先下 `HF_HUB_CACHE`/`HF_DATASETS_CACHE`，rsync 上云后 `HF_*_OFFLINE=1`
-- `lm_eval`：import 阶段触发 `evaluate.load(...)` 会联网卡住 -> 改成 lazy load（不在 import 时 load）
-- `transformers>=5` + `torch<2.6` + `pytorch_model.bin` 会被拦 -> 用 `model.safetensors` 的模型（例：`hf-internal-testing/tiny-random-gpt2`）或升 torch>=2.6
-- `checkpoint_name`：有的 fork 会先用默认 `pretrained=gpt2` 读 config -> 离线必挂 -> 把 `checkpoint_name` 提前到 `_get_config` 前
-
-## 本地（HF cache + wheelhouse -> 上云）
+## 1) 本机准备 assets（HF + wheelhouse）
 
 ```bash
 ASSETS=~/Downloads/autodl-assets
-mkdir -p $ASSETS/hf $ASSETS/wheelhouse
+mkdir -p $ASSETS/hf $ASSETS/wheelhouse-linux-cp312
 
 uv venv $ASSETS/.venv
 . $ASSETS/.venv/bin/activate
@@ -47,29 +28,74 @@ snapshot_download("hf-internal-testing/tiny-random-gpt2", cache_dir=hf)
 load_dataset("super_glue","boolq", cache_dir=f"{hf}/datasets")
 PY
 
-# wheelhouse（真要离线装包再用；注意 platform=linux）
-python3 -m pip download -d $ASSETS/wheelhouse \
+# 难装包：本机下 linux wheel，再 rsync 上云
+python3 -m pip download -d $ASSETS/wheelhouse-linux-cp312 \
   --platform manylinux2014_x86_64 --python-version 312 --implementation cp --abi cp312 \
-  --only-binary=:all: transformers==4.42.3
+  --only-binary=:all: --no-deps triton==3.2.0
 
-rsync -avP -e "ssh -i ~/.ssh/autodl_ed25519 -p 25458" $ASSETS/hf/ root@connect.bjb1.seetacloud.com:~/hf/
-rsync -avP -e "ssh -i ~/.ssh/autodl_ed25519 -p 25458" $ASSETS/wheelhouse/ root@connect.bjb1.seetacloud.com:~/wheelhouse/
+SSH='ssh -i ~/.ssh/autodl_ed25519 -p 25458'
+rsync -avP -e "$SSH" $ASSETS/hf/ root@connect.bjb1.seetacloud.com:~/hf/
+rsync -avP -e "$SSH" $ASSETS/wheelhouse-linux-cp312/ root@connect.bjb1.seetacloud.com:~/wheelhouse/
 ```
 
-## 云端（uv venv + 离线跑 smoke）
+可选 mirror：`export HF_ENDPOINT=https://hf-mirror.com`
+
+## 2) 云端通用模板（uv venv + 离线）
 
 ```bash
 UV=/root/miniconda3/bin/uv
 PY=/root/miniconda3/bin/python
-$UV venv -p $PY --system-site-packages --clear ~/pla-venv
-. ~/pla-venv/bin/activate
+$UV venv -p $PY --system-site-packages --clear ~/venv
+. ~/venv/bin/activate
 
 export HF_HUB_CACHE=$HOME/hf
 export HF_DATASETS_CACHE=$HOME/hf/datasets
 export HF_HUB_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
 export TOKENIZERS_PARALLELISM=false
 
+$UV pip install --no-index -f ~/wheelhouse triton==3.2.0
+```
+
+## 3) prefix-linear-attention（GLA 单卡离线 smoke，已跑通）
+
+前置：
+- `~/prefix-linear-attention`
+- `~/hf` 已有 `fla-hub/gla-340M-15B`、`hazyresearch/based-fda`
+
+```bash
+. ~/venv/bin/activate
 cd ~/prefix-linear-attention/lm-eval-harness
-python -u -m lm_eval --verbosity INFO --model hf-auto --model_args checkpoint_name=hf-internal-testing/tiny-random-gpt2 --tasks boolq --device cuda:0 --batch_size 1 --limit 1 --output_path $HOME/autodl-tmp/pla_out
+
+$UV pip install -U 'transformers==4.48.2' evaluate datasets accelerate
+$UV pip install --no-index -f ~/wheelhouse triton==3.2.0
+$UV pip install -U flash-linear-attention==0.4.2
+
+export TORCH_COMPILE_DISABLE=1
+export TORCHDYNAMO_DISABLE=1
+
+OUT=$HOME/autodl-tmp/gla340m_basedfda_smoke
+python -u -m lm_eval --verbosity INFO \
+  --model hf-auto --model_args checkpoint_name=fla-hub/gla-340M-15B \
+  --tasks based_fda --device cuda:0 --batch_size 1 --limit 1 \
+  --output_path $OUT
+ls -la $OUT/results.json
+```
+
+## 4) 经验/坑（最终结论）
+
+- 云端 HF 慢：永远本机下 `~/Downloads/autodl-assets/hf` 再 rsync，上云后强制 `*_OFFLINE=1`
+- `transformers>=5` 与 `fla` 的 GLA 权重绑定逻辑冲突：固定 `transformers==4.48.2`
+- `triton==3.1.*` 在 `fla` autotune 里会炸：用 `triton==3.2.0`（本机下 wheel 再传）
+- `triton==3.2.0` + `torch==2.5.1` 可能让 `torch.compile` 进 inductor 就挂：跑 eval 直接禁用 compile（`TORCH_*DISABLE`）
+
+## 5) swanlab（不用 wandb）
+
+```bash
+. ~/venv/bin/activate
+$UV pip install -U swanlab
+export WANDB_DISABLED=true
+export SWANLAB_API_KEY=...
+swanlab login --api-key "$SWANLAB_API_KEY"
 ```
