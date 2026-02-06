@@ -32,7 +32,7 @@ ssh -i "$AUTODL_KEY" -p "$AUTODL_PORT" "$AUTODL_USER@$AUTODL_HOST" nvidia-smi
 ```bash
 export REPO_URL=https://github.com/OWNER/REPO.git
 export REPO_REF=main
-export INSTALL_CMD='python -m pip install -r requirements.txt'
+export INSTALL_CMD='uv pip install -r requirements.txt'
 export RUN_CMD='python train.py --epochs 1'
 AUTODL_ACTION=smoke bash ~/Downloads/autodl.sh
 ```
