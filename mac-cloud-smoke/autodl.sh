@@ -71,9 +71,11 @@ fi
 
 cd "\$REPO_DIR"
 
-python -m pip install -q -U pip
-bash -lc "\$INSTALL_CMD"
-bash -lc "\$RUN_CMD"
+export PATH="\$HOME/.local/bin:\$PATH"
+command -v uv >/dev/null 2>&1 || curl -LsSf https://astral.sh/uv/install.sh | sh
+
+bash -lc "export PATH=\$HOME/.local/bin:\$PATH; \$INSTALL_CMD"
+bash -lc "export PATH=\$HOME/.local/bin:\$PATH; \$RUN_CMD"
 SH_REMOTE
   exit 0
 fi
@@ -91,8 +93,11 @@ RUN_CMD="$RUN_CMD"
 . \$CONDA_PREFIX/etc/profile.d/conda.sh
 conda activate \$CONDA_ENV
 
+export PATH="\$HOME/.local/bin:\$PATH"
+command -v uv >/dev/null 2>&1 || curl -LsSf https://astral.sh/uv/install.sh | sh
+
 cd ~/\$REPO_DIR
-bash -lc "\$RUN_CMD"
+bash -lc "export PATH=\$HOME/.local/bin:\$PATH; \$RUN_CMD"
 SH_REMOTE
   exit 0
 fi
