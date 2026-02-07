@@ -89,6 +89,7 @@ ls -la $OUT/results.json
 - `transformers>=5` 与 `fla` 的 GLA 权重绑定逻辑冲突：固定 `transformers==4.48.2`
 - `triton==3.1.*` 在 `fla` autotune 里会炸：用 `triton==3.2.0`（本机下 wheel 再传）
 - `triton==3.2.0` + `torch==2.5.1` 可能让 `torch.compile` 进 inductor 就挂：跑 eval 直接禁用 compile（`TORCH_*DISABLE`）
+- JRT/Future-Seed（只改 PrefixLinearAttention）：prefill 走 `parallel_forward`，要把 `state0` 注入到 numerator/denom 才会影响 context；开关 `PLA_FUTURE_SEED=1`，只在 prefill 生效（`inference_params.seqlen_offset==0`），强度 `PLA_FUTURE_SEED_ALPHA=1.0`，可从第几层开始 `PLA_FUTURE_SEED_LAYER_START=0`
 
 ## 5) swanlab（不用 wandb）
 
