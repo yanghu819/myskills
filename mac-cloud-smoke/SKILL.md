@@ -70,7 +70,12 @@ Future-Seed（只 prefill/context）：
 
 ```bash
 export PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_ALPHA=1.0 PLA_FUTURE_SEED_LAYER_START=0
-python -m lm_eval ... --output_path ~/pla-logs/future_seed_a1_limit50.json
+python -m lm_eval \
+  --model jrt_lm \
+  --model_args checkpoint_name=/root/hf-local/JRT-360M-30B,tokenizer=/root/hf-local/gpt2,arch=JRT \
+  --tasks based_fda --decode_mode default_left_pad \
+  --batch_size 1 --limit 50 \
+  --output_path ~/pla-logs/future_seed_a1_limit50.json
 ```
 
 当前结果（2026-02-07, limit50）：
@@ -85,7 +90,8 @@ python -m lm_eval ... --output_path ~/pla-logs/future_seed_a1_limit50.json
 - build 容易 OOM：`MAX_JOBS=12`
 - runtime 缺 `libc10.so`：加 `LD_LIBRARY_PATH=...torch/lib`
 - torch2.5.1 没 `torch.library.wrap_triton`：补丁
-  - `~/venv/lib/python3.12/site-packages/flash_attn/ops/triton/__init__.py`：
+  - 找到路径：`python -c 'import flash_attn.ops.triton as t; print(t.__file__)'`
+  - 改 `.../site-packages/flash_attn/ops/triton/__init__.py`：
 
 ```python
 import torch
@@ -96,7 +102,7 @@ if not hasattr(torch.library, "wrap_triton"):
 ## swanlab（不用 wandb）
 
 ```bash
-uv pip install -U swanlab
+$UV pip install -U swanlab
 export SWANLAB_API_KEY=...
 swanlab login --api-key "$SWANLAB_API_KEY"
 ```
