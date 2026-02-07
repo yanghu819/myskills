@@ -1,102 +1,102 @@
 ---
 name: mac-cloud-smoke
-description: AutoDL 单卡冒烟：本机下载(HF+wheel) -> rsync 上云；云端用 uv venv 离线跑；日志用 swanlab。
+description: AutoDL/云 GPU 单卡最短闭环：ssh alias -> uv venv -> HF mirror/本地缓存 -> wheelhouse -> smoke 跑通；只记录最终可复用做法与坑。
 ---
 
-# Mac -> AutoDL Smoke
+# mac-cloud-smoke
 
-## 0) AutoDL 一键（只做公钥）
+## SSH（本机）
 
-把 `mac-cloud-smoke/autodl.sh` 的内容粘进 AutoDL 的一键脚本执行即可。
+`~/.ssh/config`：
 
-## 1) 本机准备 assets（HF + wheelhouse）
-
-```bash
-ASSETS=~/Downloads/autodl-assets
-mkdir -p $ASSETS/hf $ASSETS/wheelhouse-linux-cp312
-
-uv venv $ASSETS/.venv
-. $ASSETS/.venv/bin/activate
-uv pip install -U huggingface_hub datasets
-
-HF_HOME=$ASSETS/hf python - <<'PY'
-import os
-from huggingface_hub import snapshot_download
-from datasets import load_dataset
-hf=os.environ["HF_HOME"]
-snapshot_download("hf-internal-testing/tiny-random-gpt2", cache_dir=hf)
-load_dataset("super_glue","boolq", cache_dir=f"{hf}/datasets")
-PY
-
-# 难装包：本机下 linux wheel，再 rsync 上云
-python3 -m pip download -d $ASSETS/wheelhouse-linux-cp312 \
-  --platform manylinux2014_x86_64 --python-version 312 --implementation cp --abi cp312 \
-  --only-binary=:all: --no-deps triton==3.2.0
-
-SSH='ssh -i ~/.ssh/autodl_ed25519 -p 25458'
-rsync -avP -e "$SSH" $ASSETS/hf/ root@connect.bjb1.seetacloud.com:~/hf/
-rsync -avP -e "$SSH" $ASSETS/wheelhouse-linux-cp312/ root@connect.bjb1.seetacloud.com:~/wheelhouse/
+```sshconfig
+Host autodl
+  HostName connect.bjb1.seetacloud.com
+  User root
+  Port 25458
+  IdentityFile ~/.ssh/autodl_ed25519
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
 ```
 
-可选 mirror：`export HF_ENDPOINT=https://hf-mirror.com`
+用法：
+- `ssh autodl`
+- `rsync -avP xxx autodl:~/`
 
-## 2) 云端通用模板（uv venv + 离线）
+AutoDL 一键只做公钥：`mac-cloud-smoke/autodl.sh`
+
+## 云端 uv（通用）
 
 ```bash
 UV=/root/miniconda3/bin/uv
 PY=/root/miniconda3/bin/python
-$UV venv -p $PY --system-site-packages --clear ~/venv
+$UV venv -p $PY --system-site-packages ~/venv
 . ~/venv/bin/activate
-
-export HF_HUB_CACHE=$HOME/hf
-export HF_DATASETS_CACHE=$HOME/hf/datasets
-export HF_HUB_OFFLINE=1
-export HF_DATASETS_OFFLINE=1
-export TRANSFORMERS_OFFLINE=1
-export TOKENIZERS_PARALLELISM=false
-
-$UV pip install --no-index -f ~/wheelhouse triton==3.2.0
 ```
 
-## 3) prefix-linear-attention（GLA 单卡离线 smoke，已跑通）
-
-前置：
-- `~/prefix-linear-attention`
-- `~/hf` 已有 `fla-hub/gla-340M-15B`、`hazyresearch/based-fda`
+HF 慢就开 mirror：
 
 ```bash
-. ~/venv/bin/activate
+export HF_ENDPOINT=https://hf-mirror.com
+export HF_HOME=$HOME/hf
+```
+
+HF 还是慢：本机先下到 `HF_HOME=...`，再 `rsync -avP hf/ autodl:~/hf/`，云端强制 `*_OFFLINE=1`。
+
+## prefix-linear-attention: based_fda smoke（JRT 360M）
+
+坑：
+- `transformers` 不会展开 `~`：checkpoint/tokenizer 路径用绝对路径
+
+```bash
+mkdir -p ~/pla-logs
 cd ~/prefix-linear-attention/lm-eval-harness
+export PYTHONPATH=~/prefix-linear-attention
 
-$UV pip install -U 'transformers==4.48.2' evaluate datasets accelerate
-$UV pip install --no-index -f ~/wheelhouse triton==3.2.0
-$UV pip install -U flash-linear-attention==0.4.2
+export TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1
+export LD_LIBRARY_PATH=/root/miniconda3/lib/python3.12/site-packages/torch/lib:${LD_LIBRARY_PATH:-}
+export WANDB_DISABLED=true
+export PLA_FUTURE_SEED=0
 
-export TORCH_COMPILE_DISABLE=1
-export TORCHDYNAMO_DISABLE=1
-
-OUT=$HOME/autodl-tmp/gla340m_basedfda_smoke
-python -u -m lm_eval --verbosity INFO \
-  --model hf-auto --model_args checkpoint_name=fla-hub/gla-340M-15B \
-  --tasks based_fda --device cuda:0 --batch_size 1 --limit 1 \
-  --output_path $OUT
-ls -la $OUT/results.json
+python -m lm_eval \
+  --model jrt_lm \
+  --model_args checkpoint_name=/root/hf-local/JRT-360M-30B,tokenizer=/root/hf-local/gpt2,arch=JRT \
+  --tasks based_fda --decode_mode default_left_pad \
+  --batch_size 1 --limit 50 \
+  --output_path ~/pla-logs/baseline_limit50.json
 ```
 
-## 4) 经验/坑（最终结论）
-
-- 云端 HF 慢：永远本机下 `~/Downloads/autodl-assets/hf` 再 rsync，上云后强制 `*_OFFLINE=1`
-- `transformers>=5` 与 `fla` 的 GLA 权重绑定逻辑冲突：固定 `transformers==4.48.2`
-- `triton==3.1.*` 在 `fla` autotune 里会炸：用 `triton==3.2.0`（本机下 wheel 再传）
-- `triton==3.2.0` + `torch==2.5.1` 可能让 `torch.compile` 进 inductor 就挂：跑 eval 直接禁用 compile（`TORCH_*DISABLE`）
-- JRT/Future-Seed（只改 PrefixLinearAttention）：prefill 走 `parallel_forward`，要把 `state0` 注入到 numerator/denom 才会影响 context；开关 `PLA_FUTURE_SEED=1`，只在 prefill 生效（`inference_params.seqlen_offset==0`），强度 `PLA_FUTURE_SEED_ALPHA=1.0`，可从第几层开始 `PLA_FUTURE_SEED_LAYER_START=0`
-
-## 5) swanlab（不用 wandb）
+Future-Seed（只 prefill/context）：
 
 ```bash
-. ~/venv/bin/activate
-$UV pip install -U swanlab
-export WANDB_DISABLED=true
+export PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_ALPHA=1.0 PLA_FUTURE_SEED_LAYER_START=0
+python -m lm_eval ... --output_path ~/pla-logs/future_seed_a1_limit50.json
+```
+
+当前结果（2026-02-07, limit50）：
+- baseline contains=0.24
+- +Future-Seed(alpha=1.0) contains=0.20
+
+## flash-attn（4090 / torch2.5.1+cu124）最终坑
+
+- `pip install flash-attn` 基本必炸：用 sdist build wheel
+- 需要 3 个 wheel：`flash_attn` + `dropout_layer_norm` + `fused_dense_lib`
+- 4090 需要 `sm89`；`dropout_layer_norm` 默认不带，要手动加
+- build 容易 OOM：`MAX_JOBS=12`
+- runtime 缺 `libc10.so`：加 `LD_LIBRARY_PATH=...torch/lib`
+- torch2.5.1 没 `torch.library.wrap_triton`：补丁
+  - `~/venv/lib/python3.12/site-packages/flash_attn/ops/triton/__init__.py`：
+
+```python
+import torch
+if not hasattr(torch.library, "wrap_triton"):
+    torch.library.wrap_triton = lambda fn: fn
+```
+
+## swanlab（不用 wandb）
+
+```bash
+uv pip install -U swanlab
 export SWANLAB_API_KEY=...
 swanlab login --api-key "$SWANLAB_API_KEY"
 ```
