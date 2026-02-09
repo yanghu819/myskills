@@ -100,7 +100,9 @@ HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE
 | based_triviaqa | 0.1950 | 0.1950 | 0.2550 |
 | based_drop | 0.1200 | 0.1300 | 0.2400 |
 
-全量验证（不加 `--limit`）可能翻方向：`based_fda`（validation=1101）baseline `0.1353`，+FS(a=0.1) `0.1272`。
+全量验证（不加 `--limit`）可能翻方向（FS 的点差很小）：  
+- `based_fda`（n=1101）baseline `0.1353`，+FS(a=0.1) `0.1272`  
+- `based_drop`（n=2087）baseline `0.1394`，+FS(a=0.1) `0.1442`
 
 ## 4. 坑（已经踩完的）
 - `fla` import 触发 `torch.compile`：必须 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
