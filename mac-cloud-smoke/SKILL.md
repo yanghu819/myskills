@@ -87,6 +87,10 @@ python -m lm_eval \
 - based_fda_twice: baseline=0.29, +Future-Seed(alpha=0.1, layer_start=0)=0.35
 - sanity：`PLA_FUTURE_SEED_ALPHA=0` 或 `PLA_FUTURE_SEED_LAYER_START>=n_layers` 应等价 baseline（验证开关确实只影响 prefill）
 
+当前结果（2026-02-09, full validation=1102）：
+- based_fda: baseline=0.2450, +Future-Seed(alpha=0.1, layer_start=0)=0.3294
+- based_fda_twice: baseline=0.2495, +Future-Seed(alpha=0.1, layer_start=0)=0.3212
+
 ## flash-attn（4090 / torch2.5.1+cu124）最终坑
 
 - `pip install flash-attn` 基本必炸：用 sdist build wheel
