@@ -80,7 +80,12 @@ python -m lm_eval \
 
 当前结果（2026-02-07, limit50）：
 - baseline contains=0.24
-- +Future-Seed(alpha=1.0) contains=0.20
+- +Future-Seed(alpha=1.0) contains=0.20（alpha 太大有时会伤）
+
+当前结果（2026-02-09, limit200）：
+- based_fda: baseline=0.295, +Future-Seed(alpha=0.1, layer_start=0)=0.355
+- based_fda_twice: baseline=0.29, +Future-Seed(alpha=0.1, layer_start=0)=0.35
+- sanity：`PLA_FUTURE_SEED_ALPHA=0` 或 `PLA_FUTURE_SEED_LAYER_START>=n_layers` 应等价 baseline（验证开关确实只影响 prefill）
 
 ## flash-attn（4090 / torch2.5.1+cu124）最终坑
 
