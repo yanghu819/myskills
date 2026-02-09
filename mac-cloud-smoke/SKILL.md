@@ -91,14 +91,14 @@ HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE
 - `lm_eval --tasks a,b` 有 bug：一次只跑 1 个 task
 
 结果（2026-02-09，JRT-360M-30B，`--limit 200`，metric=contains）：
-| task | baseline | +FS(a=0.1) |
-|---|---:|---:|
-| based_fda | 0.1457 | 0.1608 |
-| based_swde | 0.4000 | 0.4103 |
-| based_nq_1024 | 0.0800 | 0.0800 |
-| based_squad | 0.1800 | 0.1750 |
-| based_triviaqa | 0.1950 | 0.1950 |
-| based_drop | 0.1200 | 0.1300 |
+| task | baseline | +FS(a=0.1) | JRT-Prompt(task `_twice`) |
+|---|---:|---:|---:|
+| based_fda | 0.1457 | 0.1608 | 0.2714 |
+| based_swde | 0.4000 | 0.4103 | 0.4256 |
+| based_nq_1024 | 0.0800 | 0.0800 | 0.1550 |
+| based_squad | 0.1800 | 0.1750 | 0.3400 |
+| based_triviaqa | 0.1950 | 0.1950 | 0.2550 |
+| based_drop | 0.1200 | 0.1300 | 0.2400 |
 
 ## 4. 坑（已经踩完的）
 - `fla` import 触发 `torch.compile`：必须 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
