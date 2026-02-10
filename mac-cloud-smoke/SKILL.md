@@ -63,7 +63,7 @@ cd ~/prefix-linear-attention/lm-eval-harness
 OUT=/root/pla-logs/fs_paper_limit200_0209_164956
 MODEL_ARGS='checkpoint_name=/root/hf-local/JRT-360M-30B,arch=JRT,tokenizer=/root/hf-local/gpt2'
 
-HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 PYTHONPATH=.. \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 PYTHONPATH=..:../train \
   /root/pla-venv/bin/python -u -m lm_eval \
     --model jrt_lm --model_args "$MODEL_ARGS" \
     --tasks based_fda \
@@ -78,7 +78,7 @@ Future-Seed（只影响 prefill/context）：
 
 ```bash
 PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_ALPHA=0.1 PLA_FUTURE_SEED_LAYER_START=0 \
-HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 PYTHONPATH=.. \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 PYTHONPATH=..:../train \
   /root/pla-venv/bin/python -u -m lm_eval \
     --model jrt_lm --model_args "$MODEL_ARGS" \
     --tasks based_fda \
@@ -118,6 +118,7 @@ layer_start 也会改变取舍（a=0.1）：
 
 ## 4. 坑（已经踩完的）
 - `fla` import 触发 `torch.compile`：必须 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
+- `lm-eval` 需要 `PYTHONPATH=..:../train`（否则 `No module named 'src'`）
 - `datasets.load_metric` 在新版本 datasets 被移除：`lm_eval/tasks/__init__.py` 里 shim 到 `evaluate.load`
 - `based_squad` 的 `squad_v2` metric：reference 需要 `answer_start=[0]`（已 patch 到 `lm_eval/tasks/based_squadv2/task.py`）
 
