@@ -104,6 +104,10 @@ HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE
 - `based_fda`（n=1101）baseline `0.1353`，+FS(a=0.1) `0.1272`  
 - `based_drop`（n=2087）baseline `0.1394`，+FS(a=0.1) `0.1442`
 
+alpha full-val 也很敏感：  
+- `based_fda`：a=0.02 `0.1290`，a=0.05 `0.1299`，a=0.1 `0.1272`（都低于 baseline）  
+- `based_drop`：a=0.02 `0.1375`，a=0.1 `0.1442`
+
 ## 4. 坑（已经踩完的）
 - `fla` import 触发 `torch.compile`：必须 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
 - `datasets.load_metric` 在新版本 datasets 被移除：`lm_eval/tasks/__init__.py` 里 shim 到 `evaluate.load`
