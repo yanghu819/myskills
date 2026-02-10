@@ -30,6 +30,9 @@ UV=/root/miniconda3/bin/uv
 PY=/root/miniconda3/bin/python
 $UV venv -p $PY --system-site-packages ~/venv
 . ~/venv/bin/activate
+
+# pytorch-lightning 1.8.x 需要 numpy<2
+$UV pip install --python ~/venv/bin/python 'numpy==1.26.4'
 ```
 
 ## 2. HF/数据/whl（本机先下，再传）
@@ -122,6 +125,56 @@ layer_start 也会改变取舍（a=0.1）：
 
 ```bash
 uv pip install -U swanlab
-export SWANLAB_API_KEY=...
-swanlab login --api-key "$SWANLAB_API_KEY"
+
+# 不在命令/日志里放 key：默认用离线
+export SWANLAB=1
+export SWANLAB_MODE=offline
+# run 结束会提示：swanlab sync /path/to/run
+```
+
+## 6. prefix-linear-attention：训练冒烟（Baseline vs Future-Seed）
+
+必须：
+- `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
+- 如果改成 `torch.optim.AdamW`：加 `~train.optimizer.adam_w_mode`
+
+Baseline（wikitext2，20 step）：
+
+```bash
+cd ~/prefix-linear-attention
+OUT=/root/pla-train-logs/base_ft_wikitext2_$(date +%m%d_%H%M%S)
+mkdir -p "$OUT"
+
+PLA_WARMSTART_HF=/root/hf-local/JRT-360M-30B \
+SWANLAB=1 SWANLAB_MODE=offline SWANLAB_PROJECT=pla-fs SWANLAB_EXPERIMENT_NAME=base-ft-wikitext2 \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 \
+  /root/pla-venv/bin/python train/run.py \
+    experiment=slimpj/jrt-360m-6b expt_name=base-ft-wikitext2 name=base-ft-wikitext2 \
+    resume=false do_test=false +do_predict=false \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=20 trainer.val_check_interval=10 \
+    logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
+    datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.batch_size=1 datamodule.batch_size_eval=1 \
+    train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
+    hydra.run.dir=$OUT
+```
+
+Future-Seed 训练（只影响 prefill/context）：
+
+```bash
+cd ~/prefix-linear-attention
+OUT=/root/pla-train-logs/fs_ft_wikitext2_$(date +%m%d_%H%M%S)
+mkdir -p "$OUT"
+
+PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_TRAIN=1 PLA_FUTURE_SEED_ALPHA=0.1 PLA_FUTURE_SEED_LAYER_START=0 \
+PLA_WARMSTART_HF=/root/hf-local/JRT-360M-30B \
+SWANLAB=1 SWANLAB_MODE=offline SWANLAB_PROJECT=pla-fs SWANLAB_EXPERIMENT_NAME=fs-ft-wikitext2 \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 \
+  /root/pla-venv/bin/python train/run.py \
+    experiment=slimpj/jrt-360m-6b expt_name=fs-ft-wikitext2 name=fs-ft-wikitext2 \
+    resume=false do_test=false +do_predict=false \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=20 trainer.val_check_interval=10 \
+    logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
+    datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.batch_size=1 datamodule.batch_size_eval=1 \
+    train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
+    hydra.run.dir=$OUT
 ```
