@@ -37,9 +37,10 @@ rsync -avP $HOME/hf/ autodl:~/hf/
 ## 2. uv 环境（云端）
 
 ```bash
+cd ~/slot-embedding
 UV=/root/miniconda3/bin/uv
-$UV venv -p /root/miniconda3/bin/python --system-site-packages ~/venv
-. ~/venv/bin/activate
+$UV venv -p /root/miniconda3/bin/python --system-site-packages .venv
+. .venv/bin/activate
 $UV pip install -U transformers datasets numpy tqdm
 ```
 
@@ -80,7 +81,6 @@ python run.py
 ## 4. 看结论（只看这个就够）
 
 看 `$OUT_DIR/metrics.json`：
-- `template` 高、`content` 低：delta 更像“指令/模板向量”
-- `template` 和 `content` 都高：delta 更像“通用语义向量”
-- `delta_cat` ≈ `delta1`：多重启拼接没带来多样性，优先调 `STEPS=1~2` / `DELTA_INIT_SCALE`
-
+- 只看 `template_xbase`（排除同一条 base 文本的近邻），否则 `template.knn@1` 会被“同 base 不同模板”污染。
+- `content`/`content_xtemplate` 很容易顶满（p@10 上限是 0.5，因为每条 base 只有 5 个正例）。
+- `delta_cat` ≈ `delta_avg`：concat 基本没优势；先把 `DELTA_RESTARTS=3` 当作小集成用。
