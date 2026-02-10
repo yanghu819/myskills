@@ -273,5 +273,7 @@ Quick sanity eval（wikitext2 s200，`--limit 200`）：
 
 ADAPT 这版（lr=1e-5, s200）`fs_gate` 基本不动，想让它学需要更大 lr 或只训 adapter。
 
-只训 adapter（`PLA_FUTURE_SEED_ADAPT_ONLY=1`, `lr=1e-3`, s200）会更差（`based_fda=0.1457`, `based_drop=0.125`），先别用。
+只训 adapter 目前两次都更差，先暂停：
+- `PLA_FUTURE_SEED_ADAPT_ONLY=1`, `lr=1e-3`, s200, `--limit 200`：`based_fda=0.1457`, `based_drop=0.125`
+- `PLA_FUTURE_SEED_ADAPT_ONLY=1`, `lr=3e-4`, s200, `--limit 400`：baseline `based_fda=0.1429`, `based_drop=0.1200` -> FS+ADAPT `based_fda=0.1378`, `based_drop=0.1125`
 ```
