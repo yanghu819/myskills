@@ -108,6 +108,11 @@ alpha full-val 也很敏感：
 - `based_fda`：a=0.02 `0.1290`，a=0.05 `0.1299`，a=0.1 `0.1272`（都低于 baseline）  
 - `based_drop`：a=0.02 `0.1375`，a=0.1 `0.1442`
 
+layer_start 也会改变取舍（a=0.1）：  
+- `layer_start=0`：`based_fda 0.1272`（伤），`based_drop 0.1442`（小涨）  
+- `layer_start=8`：`based_fda 0.1335`（几乎不变），`based_drop 0.1366`（变成下降）  
+=> inference-only FS 目前看不稳定，无法同时覆盖 fda+drop。
+
 ## 4. 坑（已经踩完的）
 - `fla` import 触发 `torch.compile`：必须 `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
 - `datasets.load_metric` 在新版本 datasets 被移除：`lm_eval/tasks/__init__.py` 里 shim 到 `evaluate.load`
