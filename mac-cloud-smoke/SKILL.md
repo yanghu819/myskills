@@ -138,6 +138,7 @@ export SWANLAB_MODE=offline
 必须：
 - `TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1`
 - 如果改成 `torch.optim.AdamW`：加 `~train.optimizer.adam_w_mode`
+- smoke 一定要加 `trainer.accumulate_grad_batches=1`（不然默认会变成 256，`max_steps` 变很慢）
 
 Baseline（wikitext2，20 step）：
 
@@ -152,7 +153,7 @@ HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE
   /root/pla-venv/bin/python train/run.py \
     experiment=slimpj/jrt-360m-6b expt_name=base-ft-wikitext2 name=base-ft-wikitext2 \
     resume=false do_test=false +do_predict=false \
-    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=20 trainer.val_check_interval=10 \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=20 trainer.val_check_interval=10 trainer.accumulate_grad_batches=1 \
     logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
     datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.batch_size=1 datamodule.batch_size_eval=1 \
     train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
@@ -173,9 +174,102 @@ HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE
   /root/pla-venv/bin/python train/run.py \
     experiment=slimpj/jrt-360m-6b expt_name=fs-ft-wikitext2 name=fs-ft-wikitext2 \
     resume=false do_test=false +do_predict=false \
-    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=20 trainer.val_check_interval=10 \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=20 trainer.val_check_interval=10 trainer.accumulate_grad_batches=1 \
     logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
     datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.batch_size=1 datamodule.batch_size_eval=1 \
     train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
     hydra.run.dir=$OUT
+
+## 7. fine-tune s200 + 导出 HF（给 lm-eval 用）
+
+Baseline：
+
+```bash
+cd ~/prefix-linear-attention
+OUT=/root/pla-exp/base_wiki2_s200_$(date +%m%d_%H%M%S)
+mkdir -p "$OUT"
+
+PLA_EXPORT_HF_DIR=$OUT/hf \
+PLA_WARMSTART_HF=/root/hf-local/JRT-360M-30B \
+SWANLAB=1 SWANLAB_MODE=offline SWANLAB_PROJECT=pla-fs SWANLAB_EXPERIMENT_NAME=base-wiki2-s200 \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 \
+  /root/pla-venv/bin/python -u train/run.py \
+    experiment=slimpj/jrt-360m-6b expt_name=base-wiki2-s200 name=base-wiki2-s200 \
+    resume=false do_test=false +do_predict=false \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=200 trainer.val_check_interval=200 +trainer.num_sanity_val_steps=0 trainer.accumulate_grad_batches=1 \
+    callbacks.model_checkpoint.save_last=false callbacks.model_checkpoint.save_top_k=0 logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
+    datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.num_workers=4 datamodule.batch_size=1 datamodule.batch_size_eval=1 \
+    train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
+    hydra.run.dir=$OUT
+```
+
+FS-train：
+
+```bash
+cd ~/prefix-linear-attention
+OUT=/root/pla-exp/fs_wiki2_s200_$(date +%m%d_%H%M%S)
+mkdir -p "$OUT"
+
+PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_TRAIN=1 PLA_FUTURE_SEED_ALPHA=0.1 PLA_FUTURE_SEED_LAYER_START=0 \
+PLA_EXPORT_HF_DIR=$OUT/hf \
+PLA_WARMSTART_HF=/root/hf-local/JRT-360M-30B \
+SWANLAB=1 SWANLAB_MODE=offline SWANLAB_PROJECT=pla-fs SWANLAB_EXPERIMENT_NAME=fs-wiki2-s200 \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 \
+  /root/pla-venv/bin/python -u train/run.py \
+    experiment=slimpj/jrt-360m-6b expt_name=fs-wiki2-s200 name=fs-wiki2-s200 \
+    resume=false do_test=false +do_predict=false \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=200 trainer.val_check_interval=200 +trainer.num_sanity_val_steps=0 trainer.accumulate_grad_batches=1 \
+    callbacks.model_checkpoint.save_last=false callbacks.model_checkpoint.save_top_k=0 logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
+    datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.num_workers=4 datamodule.batch_size=1 datamodule.batch_size_eval=1 \
+    train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
+    hydra.run.dir=$OUT
+```
+
+FS-train + ADAPT：
+
+```bash
+cd ~/prefix-linear-attention
+OUT=/root/pla-exp/fs_adapt_wiki2_s200_$(date +%m%d_%H%M%S)
+mkdir -p "$OUT"
+
+PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_TRAIN=1 PLA_FUTURE_SEED_ALPHA=0.1 PLA_FUTURE_SEED_LAYER_START=0 PLA_FUTURE_SEED_ADAPT=1 \
+PLA_EXPORT_HF_DIR=$OUT/hf \
+PLA_WARMSTART_HF=/root/hf-local/JRT-360M-30B \
+SWANLAB=1 SWANLAB_MODE=offline SWANLAB_PROJECT=pla-fs SWANLAB_EXPERIMENT_NAME=fs-adapt-wiki2-s200 \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 \
+  /root/pla-venv/bin/python -u train/run.py \
+    experiment=slimpj/jrt-360m-6b expt_name=fs-adapt-wiki2-s200 name=fs-adapt-wiki2-s200 \
+    resume=false do_test=false +do_predict=false \
+    trainer.devices=1 trainer.accelerator=gpu trainer.precision=bf16 trainer.max_steps=200 trainer.val_check_interval=200 +trainer.num_sanity_val_steps=0 trainer.accumulate_grad_batches=1 \
+    callbacks.model_checkpoint.save_last=false callbacks.model_checkpoint.save_top_k=0 logger=csv callbacks.model_checkpoint.dirpath=$OUT/ckpt \
+    datamodule.dataset_name=wikitext datamodule.dataset_config_name=wikitext-2-raw-v1 datamodule.cache_dir=$OUT/data datamodule.num_workers=4 datamodule.batch_size=1 datamodule.batch_size_eval=1 \
+    train.optimizer._target_=torch.optim.AdamW ~train.optimizer.adam_w_mode train.optimizer.lr=1e-5 train.optimizer.weight_decay=0.01 train.scheduler=null \
+    hydra.run.dir=$OUT
+```
+
+lm-eval（`--limit 200`，每次只跑 1 个 task）：
+
+```bash
+cd ~/prefix-linear-attention/lm-eval-harness
+MODEL_ARGS="checkpoint_name=/abs/path/to/hf,arch=JRT,tokenizer=/root/hf-local/gpt2"
+
+PLA_FUTURE_SEED=1 PLA_FUTURE_SEED_ALPHA=0.1 PLA_FUTURE_SEED_LAYER_START=0 PLA_FUTURE_SEED_ADAPT=1 \
+HF_ENDPOINT=https://hf-mirror.com HF_HOME=~/hf WANDB_DISABLED=true TORCH_COMPILE_DISABLE=1 TORCHDYNAMO_DISABLE=1 PYTHONPATH=..:../train \
+  /root/pla-venv/bin/python -u -m lm_eval \
+    --model jrt_lm --model_args "$MODEL_ARGS" \
+    --tasks based_fda \
+    --num_fewshot 0 --batch_size 1 --device cuda:0 \
+    --cutting_context --context_length 1000 --answer_length 50 \
+    --context_key text \
+    --limit 200 \
+    --output_path /tmp/out.json
+```
+
+Quick sanity eval（wikitext2 s200，`--limit 200`）：
+| task | baseline-ft | FS-train+FS-infer | FS-train+ADAPT+FS-infer |
+|---|---:|---:|---:|
+| based_fda | 0.1508 | 0.1508 | 0.1508 |
+| based_drop | 0.1350 | 0.1400 | 0.1350 |
+
+ADAPT 这版（lr=1e-5, s200）`fs_gate` 基本不动，想让它学需要更大 lr 或只训 adapter。
 ```
