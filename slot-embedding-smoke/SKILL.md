@@ -84,3 +84,9 @@ python run.py
 - 只看 `template_xbase`（排除同一条 base 文本的近邻），否则 `template.knn@1` 会被“同 base 不同模板”污染。
 - `content`/`content_xtemplate` 很容易顶满（p@10 上限是 0.5，因为每条 base 只有 5 个正例）。
 - `delta_cat` ≈ `delta_avg`：concat 基本没优势；先把 `DELTA_RESTARTS=3` 当作小集成用。
+- 看 `label_base` 才能判断语义 embedding：delta* 是否在 label 检索/分类上超过 mean/grad。
+
+## 5. 常见卡点
+
+`nvidia-smi` 正常但 CUDA init 失败（`torch.cuda.init()` 报 driver init failed）：
+- 一般是容器/实例 GPU 绑定异常，直接在 AutoDL 面板重启实例/重建容器最快。
