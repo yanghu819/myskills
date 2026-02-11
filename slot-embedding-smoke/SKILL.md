@@ -85,6 +85,14 @@ export LOSS_SLICE=content
 python run.py
 ```
 
+只优化 content 的最后 N 个 token（更偏“语义末态”）：
+
+```bash
+export LOSS_SLICE=content
+export LOSS_TAIL=64
+python run.py
+```
+
 ## 4. 看结论（只看这个就够）
 
 看 `$OUT_DIR/metrics.json`：
