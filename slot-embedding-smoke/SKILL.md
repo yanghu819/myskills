@@ -78,6 +78,13 @@ export DELTA_INIT_SCALE=0.05
 python run.py
 ```
 
+只优化 content 区域（减少模板偏置）：
+
+```bash
+export LOSS_SLICE=content
+python run.py
+```
+
 ## 4. 看结论（只看这个就够）
 
 看 `$OUT_DIR/metrics.json`：
