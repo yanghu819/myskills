@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+HOST="${AUTODL_HOST:-connect.bjb1.seetacloud.com}"
+PORT="${AUTODL_PORT:-20793}"
+USER="${AUTODL_USER:-root}"
+KEY="${AUTODL_KEY:-$HOME/.ssh/autodl_ed25519}"
+
+exec ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$KEY" -p "$PORT" "$USER@$HOST" "$@"
+

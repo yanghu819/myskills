@@ -1,0 +1,5 @@
+interface:
+  display_name: "AutoDL Codex"
+  short_description: "AutoDL shortest loop: uv + data disk + wheelhouse + rsync + git notes"
+  default_prompt: "Use the AutoDL shortest loop: data disk only, uv env, local wheelhouse upload, smoke run, and push notes to myskills."
+
