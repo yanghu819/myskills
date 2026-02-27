@@ -1,31 +1,31 @@
 {
   "mode": "full",
   "publish_dry_run": true,
-  "started_at": "2026-02-27T00:00:05Z",
-  "ended_at": "2026-02-27T00:00:08Z",
+  "started_at": "2026-02-27T00:04:50Z",
+  "ended_at": "2026-02-27T00:04:52Z",
   "bundle_pipeline": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline",
-  "tmp_dir": "/private/tmp/xhs_skill_smoke_67859",
+  "tmp_dir": "/private/tmp/xhs_skill_smoke_70004",
   "steps": [
     {
       "step": "build_assets",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/build_assets.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/build_assets.log",
       "tail": [
-        "Wrote compact editorial assets: /private/tmp/xhs_skill_smoke_67859/assets"
+        "Wrote compact editorial assets: /private/tmp/xhs_skill_smoke_70004/assets"
       ]
     },
     {
       "step": "build_md_v2",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/build_md_v2.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/build_md_v2.log",
       "tail": [
-        "Wrote markdown: /private/tmp/xhs_skill_smoke_67859/smoke_v2.md"
+        "Wrote markdown: /private/tmp/xhs_skill_smoke_70004/smoke_v2.md"
       ]
     },
     {
       "step": "offline_verify",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/offline_verify.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/offline_verify.log",
       "tail": [
         "STATUS=ok",
         "OUTPUT_PATH=/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline",
@@ -40,7 +40,7 @@
         "test_missing_asset_fails (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok",
         "",
         "----------------------------------------------------------------------",
-        "Ran 8 tests in 0.458s",
+        "Ran 8 tests in 0.455s",
         "",
         "OK",
         "Validation passed: /private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/examples/sample_book_outline.v1.json",
@@ -52,7 +52,7 @@
     {
       "step": "publish_dry_run",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/publish_dry_run.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/publish_dry_run.log",
       "tail": [
         "Dry run passed.",
         "Title: smoke-dry-run",
@@ -64,37 +64,37 @@
     {
       "step": "py_compile",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/py_compile.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/py_compile.log",
       "tail": []
     },
     {
       "step": "render_10",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/render_10.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/render_10.log",
       "tail": [
-        "Rendered 10 card(s) to: /private/tmp/xhs_skill_smoke_67859/smoke_rendered",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/01-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/02-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/03-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/04-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/05-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/06-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/07-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/08-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/09-card.png",
-        "- /private/tmp/xhs_skill_smoke_67859/smoke_rendered/10-card.png"
+        "Rendered 10 card(s) to: /private/tmp/xhs_skill_smoke_70004/smoke_rendered",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/01-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/02-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/03-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/04-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/05-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/06-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/07-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/08-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/09-card.png",
+        "- /private/tmp/xhs_skill_smoke_70004/smoke_rendered/10-card.png"
       ]
     },
     {
       "step": "sh_syntax",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/sh_syntax.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/sh_syntax.log",
       "tail": []
     },
     {
       "step": "skill_validate",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/skill_validate.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/skill_validate.log",
       "tail": [
         "Skill is valid!"
       ]
@@ -102,7 +102,7 @@
     {
       "step": "unit_tests",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/unit_tests.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/unit_tests.log",
       "tail": [
         "test_generate_assets (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok",
         "test_invalid_outline_fails (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok",
@@ -122,7 +122,7 @@
     {
       "step": "verify_manifest",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_67859/verify_manifest.log",
+      "log_path": "/private/tmp/xhs_skill_smoke_70004/verify_manifest.log",
       "tail": [
         "manifest ok"
       ]

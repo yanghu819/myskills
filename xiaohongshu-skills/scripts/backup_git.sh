@@ -59,7 +59,12 @@ else
   COMMIT_SHA="$(git rev-parse HEAD)"
 fi
 
-git push origin "HEAD:${BRANCH}"
+if [[ -n "${GITHUB_TOKEN:-}" ]]; then
+  PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO_OWNER}/${REPO}.git"
+  git push "$PUSH_URL" "HEAD:${BRANCH}"
+else
+  git push origin "HEAD:${BRANCH}"
+fi
 
 mkdir -p "$(dirname "$REPORT")"
 python3 - <<PY
