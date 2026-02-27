@@ -65,6 +65,7 @@ PY
 )"
 
 REMOTE_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}.git"
+AUTH_HEADER="AUTHORIZATION: basic $(printf 'x-access-token:%s' "${GITHUB_TOKEN}" | base64)"
 
 if ! git -C "$GIT_ROOT" config user.email >/dev/null; then
   git -C "$GIT_ROOT" config user.email "codex-bot@example.com"
@@ -86,13 +87,13 @@ commit_sha="$(git -C "$GIT_ROOT" rev-parse HEAD)"
 
 # Push target branch
 if [[ "$TARGET_BRANCH" == "main" ]]; then
-  git -C "$GIT_ROOT" -c http.extraheader="Authorization: Bearer ${GITHUB_TOKEN}" push "$REMOTE_URL" "HEAD:main"
+  git -C "$GIT_ROOT" -c http.extraheader="${AUTH_HEADER}" push "$REMOTE_URL" "HEAD:main"
   pushed_refs='["main"]'
 else
-  git -C "$GIT_ROOT" -c http.extraheader="Authorization: Bearer ${GITHUB_TOKEN}" push "$REMOTE_URL" "HEAD:${TARGET_BRANCH}"
+  git -C "$GIT_ROOT" -c http.extraheader="${AUTH_HEADER}" push "$REMOTE_URL" "HEAD:${TARGET_BRANCH}"
   pushed_refs='["'"$TARGET_BRANCH"'"]'
   if [[ "$PUSH_MAIN" -eq 1 ]]; then
-    git -C "$GIT_ROOT" -c http.extraheader="Authorization: Bearer ${GITHUB_TOKEN}" push "$REMOTE_URL" "HEAD:main"
+    git -C "$GIT_ROOT" -c http.extraheader="${AUTH_HEADER}" push "$REMOTE_URL" "HEAD:main"
     pushed_refs='["'"$TARGET_BRANCH"'","main"]'
   fi
 fi
