@@ -2,7 +2,7 @@
   "repo_owner": "yanghu819",
   "repo": "myskills",
   "ref": "main",
-  "generated_at": "2026-02-27T00:35:25.302421+00:00",
+  "generated_at": "2026-02-27T00:51:13.071160+00:00",
   "status": "ok",
   "results": [
     {
@@ -36,8 +36,8 @@
     {
       "local": "/private/tmp/myskills-work/xiaohongshu-skills/scripts/backup_git.sh",
       "remote": "xiaohongshu-skills/scripts/backup_git.sh",
-      "local_sha256": "6727be7a7e79b4d35fc660094538c090fc56a7776d6c2356932f93b11ccd1510",
-      "remote_sha256": "6727be7a7e79b4d35fc660094538c090fc56a7776d6c2356932f93b11ccd1510",
+      "local_sha256": "e2581d61abd074930a915e27176b3e5228980df5cbe824f9a88ecb08588d786a",
+      "remote_sha256": "e2581d61abd074930a915e27176b3e5228980df5cbe824f9a88ecb08588d786a",
       "matched": true
     },
     {
