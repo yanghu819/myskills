@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-02-27T04:02:30.331470+00:00",
+  "repo_owner": "yanghu819",
+  "repo": "myskills",
+  "ref": "main",
+  "summary": {
+    "total": 8,
+    "mismatches": 0,
+    "status": "passed"
+  },
+  "checks": [
+    {
+      "path": "xiaohongshu-skills/SKILL.md",
+      "local_exists": true,
+      "local_sha256": "0e51a6fbdc759ada7e99c701544457d23be1f5b31975eba427b476136f480ec0",
+      "remote_sha256": "0e51a6fbdc759ada7e99c701544457d23be1f5b31975eba427b476136f480ec0",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/CLAUDE.md",
+      "local_exists": true,
+      "local_sha256": "dfe9ff6586b2f3e8ea8228979b415db6f11a8fa5b369289bc106cdd80354ef61",
+      "remote_sha256": "dfe9ff6586b2f3e8ea8228979b415db6f11a8fa5b369289bc106cdd80354ef61",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/scripts/smoke_all.sh",
+      "local_exists": true,
+      "local_sha256": "ced01c88d27b3fe297532d8bcd8ff4515035bb3cf28388c955cab5267f74121b",
+      "remote_sha256": "ced01c88d27b3fe297532d8bcd8ff4515035bb3cf28388c955cab5267f74121b",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/scripts/redact_snapshot.py",
+      "local_exists": true,
+      "local_sha256": "03b206d4294ff1ca25ed2d85a259e515cd8134586833d18ef2a2488c18b80b89",
+      "remote_sha256": "03b206d4294ff1ca25ed2d85a259e515cd8134586833d18ef2a2488c18b80b89",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/scripts/backup_git.sh",
+      "local_exists": true,
+      "local_sha256": "1f7f51d6a288da4ff203f70bcd6e31d801fe414c238a1d7770ce232215241178",
+      "remote_sha256": "1f7f51d6a288da4ff203f70bcd6e31d801fe414c238a1d7770ce232215241178",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/scripts/verify_github_api.py",
+      "local_exists": true,
+      "local_sha256": "3166f94d5d021bfda2275a6a37d5bc8e8943a4e5cb4172af9a2b2f91e681d71e",
+      "remote_sha256": "3166f94d5d021bfda2275a6a37d5bc8e8943a4e5cb4172af9a2b2f91e681d71e",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/state/smoke_report.json",
+      "local_exists": true,
+      "local_sha256": "2acf347cb4099084fcbec1aca87f5ca1a3b07d764c1fa5ae449ad9564599e9c9",
+      "remote_sha256": "2acf347cb4099084fcbec1aca87f5ca1a3b07d764c1fa5ae449ad9564599e9c9",
+      "match": true,
+      "error": ""
+    },
+    {
+      "path": "xiaohongshu-skills/state/redaction_report.json",
+      "local_exists": true,
+      "local_sha256": "8119f3e59278e1df05595a2cffdfbf404b3ac12fa848d014aacf9d7f217673b2",
+      "remote_sha256": "8119f3e59278e1df05595a2cffdfbf404b3ac12fa848d014aacf9d7f217673b2",
+      "match": true,
+      "error": ""
+    }
+  ]
+}

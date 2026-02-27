@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-02-27T04:01:51.165643+00:00",
+  "git_root": "/private/tmp/myskills-repo-20260227c",
+  "skill_path": "xiaohongshu-skills",
+  "repo_owner": "yanghu819",
+  "repo": "myskills",
+  "target_branch": "main",
+  "commit_sha": "53ed505c86f4ad6a86338da5a5066ad29e6815ff",
+  "commit_created": true,
+  "pushed_refs": [
+    "main"
+  ]
+}
