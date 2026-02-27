@@ -1,0 +1,150 @@
+{
+  "run_id": "split-20260226T171140-0515f2f9",
+  "created_at": "2026-02-26T09:11:40.870778+00:00",
+  "book_path": "/Users/hy3/Desktop/setting/xhs-pipeline/tools/mono-claw-xhs-private-src/resources/books/The Hard Thing About Hard Things.epub",
+  "book_title": "The Hard Thing About Hard Things",
+  "source_type": "epub",
+  "config": {
+    "target_parts": 10,
+    "min_chars": 8000,
+    "max_chars": 22000
+  },
+  "chapters_count": 54,
+  "total_chars": 457385,
+  "parts": [
+    {
+      "part_id": "P01",
+      "title": "The Hard Thing About Hard Thing split 001 -> The Hard Thing About Hard Thing split 004",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 001",
+        "The Hard Thing About Hard Thing split 002",
+        "The Hard Thing About Hard Thing split 003",
+        "The Hard Thing About Hard Thing split 004"
+      ],
+      "chars": 35211,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/01_the-hard-thing-about-hard-thing-split-001-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P02",
+      "title": "The Hard Thing About Hard Thing split 005",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 005"
+      ],
+      "chars": 39910,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/02_the-hard-thing-about-hard-thing-split-005.md"
+    },
+    {
+      "part_id": "P03",
+      "title": "The Hard Thing About Hard Thing split 006 -> The Hard Thing About Hard Thing split 009",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 006",
+        "The Hard Thing About Hard Thing split 007",
+        "The Hard Thing About Hard Thing split 008",
+        "The Hard Thing About Hard Thing split 009"
+      ],
+      "chars": 49978,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/03_the-hard-thing-about-hard-thing-split-006-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P04",
+      "title": "The Hard Thing About Hard Thing split 010 -> The Hard Thing About Hard Thing split 016",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 010",
+        "The Hard Thing About Hard Thing split 011",
+        "The Hard Thing About Hard Thing split 012",
+        "The Hard Thing About Hard Thing split 013",
+        "The Hard Thing About Hard Thing split 014",
+        "The Hard Thing About Hard Thing split 015",
+        "The Hard Thing About Hard Thing split 016"
+      ],
+      "chars": 46124,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/04_the-hard-thing-about-hard-thing-split-010-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P05",
+      "title": "The Hard Thing About Hard Thing split 017 -> The Hard Thing About Hard Thing split 021",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 017",
+        "The Hard Thing About Hard Thing split 018",
+        "The Hard Thing About Hard Thing split 019",
+        "The Hard Thing About Hard Thing split 020",
+        "The Hard Thing About Hard Thing split 021"
+      ],
+      "chars": 46121,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/05_the-hard-thing-about-hard-thing-split-017-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P06",
+      "title": "The Hard Thing About Hard Thing split 022 -> The Hard Thing About Hard Thing split 028",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 022",
+        "The Hard Thing About Hard Thing split 023",
+        "The Hard Thing About Hard Thing split 024",
+        "The Hard Thing About Hard Thing split 025",
+        "The Hard Thing About Hard Thing split 026",
+        "The Hard Thing About Hard Thing split 027",
+        "The Hard Thing About Hard Thing split 028"
+      ],
+      "chars": 51936,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/06_the-hard-thing-about-hard-thing-split-022-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P07",
+      "title": "The Hard Thing About Hard Thing split 029 -> The Hard Thing About Hard Thing split 034",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 029",
+        "The Hard Thing About Hard Thing split 030",
+        "The Hard Thing About Hard Thing split 031",
+        "The Hard Thing About Hard Thing split 032",
+        "The Hard Thing About Hard Thing split 033",
+        "The Hard Thing About Hard Thing split 034"
+      ],
+      "chars": 45962,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/07_the-hard-thing-about-hard-thing-split-029-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P08",
+      "title": "The Hard Thing About Hard Thing split 035 -> The Hard Thing About Hard Thing split 040",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 035",
+        "The Hard Thing About Hard Thing split 036",
+        "The Hard Thing About Hard Thing split 037",
+        "The Hard Thing About Hard Thing split 038",
+        "The Hard Thing About Hard Thing split 039",
+        "The Hard Thing About Hard Thing split 040"
+      ],
+      "chars": 47400,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/08_the-hard-thing-about-hard-thing-split-035-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P09",
+      "title": "The Hard Thing About Hard Thing split 041 -> The Hard Thing About Hard Thing split 047",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 041",
+        "The Hard Thing About Hard Thing split 042",
+        "The Hard Thing About Hard Thing split 043",
+        "The Hard Thing About Hard Thing split 044",
+        "The Hard Thing About Hard Thing split 045",
+        "The Hard Thing About Hard Thing split 046",
+        "The Hard Thing About Hard Thing split 047"
+      ],
+      "chars": 53258,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/09_the-hard-thing-about-hard-thing-split-041-the-hard-thing-abo.md"
+    },
+    {
+      "part_id": "P10",
+      "title": "The Hard Thing About Hard Thing split 048 -> The Hard Thing About Hard Thing split 054",
+      "chapter_titles": [
+        "The Hard Thing About Hard Thing split 048",
+        "The Hard Thing About Hard Thing split 049",
+        "The Hard Thing About Hard Thing split 050",
+        "The Hard Thing About Hard Thing split 051",
+        "The Hard Thing About Hard Thing split 052",
+        "The Hard Thing About Hard Thing split 053",
+        "The Hard Thing About Hard Thing split 054"
+      ],
+      "chars": 41485,
+      "file": "/Users/hy3/Desktop/setting/xhs-pipeline/state/hardthing-split/chunks/10_the-hard-thing-about-hard-thing-split-048-the-hard-thing-abo.md"
+    }
+  ]
+}

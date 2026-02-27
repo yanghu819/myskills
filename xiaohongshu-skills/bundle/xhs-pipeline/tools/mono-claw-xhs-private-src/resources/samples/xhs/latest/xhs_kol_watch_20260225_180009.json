@@ -1,0 +1,1137 @@
+{
+  "run_id": "20260225_180009",
+  "notes_count": 247,
+  "days": 30,
+  "source_distribution": {
+    "bilibili": 247
+  },
+  "source_warnings": [
+    "XHS MCP 未启动，已跳过实时 XHS。"
+  ],
+  "top_creators": [
+    {
+      "creator_key": "bilibili:385066707",
+      "nickname": "大咖运营课堂",
+      "user_id": "385066707",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 6,
+      "total_likes": 565,
+      "total_collects": 1670,
+      "total_comments": 117,
+      "total_plays": 22011,
+      "total_score": 4520.719999999999,
+      "sample_titles": [
+        "【新媒体运营全域课程】2026版教程300集，起号/私域/变现/矩阵，电商运营/小红书运营/短视频直播运营/DeepSeekAi，新媒体求职就业自学教程！",
+        "【新媒体运营】零基础到精通2026版，求职/变现/私域，抖音短视频运营/小红书电商运营/自媒体起号自学课程，300集课程让你能力全面提升！",
+        "【B站2026全套运营课程】零基础入门全平台运营教程！小红书/抖音/视频号全平台运营，AI应用+内容爆破+私域引流+多平台布局，带你快速入门新媒体领域！",
+        "【B站最全新媒体运营教程】Deepseek实战+抖音/小红书全域平台运营+直播带货技巧，覆盖爆款内容生产/私域转化/矩阵布局，零基础全平台运营实战课！",
+        "【新媒体运营300集自学教程】私域/涨粉变现/矩阵， DeepSeekAi+小红书运营+抖音短视频运营+直播电商运营 ，自媒体全套零基础就业教程！",
+        "【新媒体运营】150集从入门到精通教程，涨粉|变现|矩阵，Deepseek+小红书运营全流程/抖音短视频拍摄/直播带货技巧 自媒体10天就业起号，看完就能上手！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116021528626290",
+        "http://www.bilibili.com/video/av116011193926658",
+        "http://www.bilibili.com/video/av115999835688171",
+        "http://www.bilibili.com/video/av115966381918707"
+      ],
+      "last_publish_ts": 1771644000,
+      "rank_score": 7233.15,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "流量增长",
+        "私域运营",
+        "产品设计"
+      ],
+      "avg_score": 753.45,
+      "last_publish_date": "2026-02-21",
+      "profile": "https://space.bilibili.com/385066707"
+    },
+    {
+      "creator_key": "bilibili:432661496",
+      "nickname": "没事多读书呀",
+      "user_id": "432661496",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 4549,
+      "total_collects": 1619,
+      "total_comments": 4,
+      "total_plays": 50599,
+      "total_score": 8804.98,
+      "sample_titles": [
+        "我是如何利用知识变现的"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116085651152486"
+      ],
+      "last_publish_ts": 1771326594,
+      "rank_score": 6163.49,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 8804.98,
+      "last_publish_date": "2026-02-17",
+      "profile": "https://space.bilibili.com/432661496"
+    },
+    {
+      "creator_key": "bilibili:3690987169778454",
+      "nickname": "Info孟孟",
+      "user_id": "3690987169778454",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 2,
+      "total_likes": 3774,
+      "total_collects": 254,
+      "total_comments": 7,
+      "total_plays": 5937,
+      "total_score": 4411.24,
+      "sample_titles": [
+        "智能时代生存指南2：你的人生，是AI时代最贵的资产",
+        "智能时代生存指南1：你的专业，是AI时代最深的陷阱"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116108535336984",
+        "http://www.bilibili.com/video/av116046342197750"
+      ],
+      "last_publish_ts": 1771675692,
+      "rank_score": 4940.59,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 2205.62,
+      "last_publish_date": "2026-02-21",
+      "profile": "https://space.bilibili.com/3690987169778454"
+    },
+    {
+      "creator_key": "bilibili:3546592407718557",
+      "nickname": "小手冻冰凉儿",
+      "user_id": "3546592407718557",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 1844,
+      "total_collects": 2105,
+      "total_comments": 22,
+      "total_plays": 43343,
+      "total_score": 6953.86,
+      "sample_titles": [
+        "【B站周报03】学生更适合做自媒体？游戏UP避坑指南！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116013978883719"
+      ],
+      "last_publish_ts": 1770261270,
+      "rank_score": 4867.7,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 6953.86,
+      "last_publish_date": "2026-02-05",
+      "profile": "https://space.bilibili.com/3546592407718557"
+    },
+    {
+      "creator_key": "bilibili:1483296867",
+      "nickname": "大咖教运营",
+      "user_id": "1483296867",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 4,
+      "total_likes": 423,
+      "total_collects": 1195,
+      "total_comments": 108,
+      "total_plays": 15787,
+      "total_score": 3290.74,
+      "sample_titles": [
+        "【2026新版新媒体运营课程】150集全网热推全套运营课程！企业号/个人号/就业变现，DeepSeekAi+小红书运营抖音短视频运营直播电商自媒体私域运营！",
+        "【全150集】新媒体运营零基础到精通2026版|Deepseek+小红书运营全流程/抖音短视频拍摄/直播带货技巧 自媒体10天就业起号，官方都在推荐的课程！",
+        "【新媒体运营课程2026版】短视频起号/矩阵/涨粉|10天精通新媒体从0-1高级运营实战课程|抖音短视频运营小红书运营电商运营私域自媒体运营全套起号课！",
+        "【全网首创2026版新媒体运营课】 DeepSeekAi最强运营系统课+小红书运营/抖音短视频运营/直播电商带货，变现/IP/私域矩阵！零基础自媒体创业课！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116129104139973",
+        "http://www.bilibili.com/video/av116045721509385",
+        "http://www.bilibili.com/video/av116027182554939",
+        "http://www.bilibili.com/video/av116004566929756"
+      ],
+      "last_publish_ts": 1771989938,
+      "rank_score": 4475.41,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "产品设计",
+        "私域运营",
+        "流量增长"
+      ],
+      "avg_score": 822.68,
+      "last_publish_date": "2026-02-25",
+      "profile": "https://space.bilibili.com/1483296867"
+    },
+    {
+      "creator_key": "bilibili:2094083072",
+      "nickname": "大咖私域运营",
+      "user_id": "2094083072",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 4,
+      "total_likes": 405,
+      "total_collects": 690,
+      "total_comments": 134,
+      "total_plays": 12221,
+      "total_score": 2230.42,
+      "sample_titles": [
+        "【新媒体运营】零基础到精通2026版，小红书运营/短视频剪辑/抖音直播带货/爆款文案打造， AI工具+爆款公式+数据分析，自媒体全套实战课程！",
+        "【2026新媒体运营教程】自媒体运营零基础入门到精通课 变现/IP/私域矩阵 小红书运营/抖音短视频/电商直播带货+DeepSeekAi玩法，零基础求职就业课！",
+        "【2026新媒体运营就业课】0基础新媒体运营进阶课 ，矩阵/涨粉变现/获客，全平台自媒体运营/直播电商/求职就业，做自媒体必学这一套！",
+        "【2026新媒体运营教程】零基础到精通课，小红书运营/抖音短视频/抖音直播+Ai工具创作，涨粉变现|私域引流|矩阵布局，专为小白求职/副业/创业打造！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115966046377766",
+        "http://www.bilibili.com/video/av116124859572144",
+        "http://www.bilibili.com/video/av116044211491126",
+        "http://www.bilibili.com/video/av115988443959621"
+      ],
+      "last_publish_ts": 1771925215,
+      "rank_score": 3033.37,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "流量增长",
+        "私域运营",
+        "内容生产"
+      ],
+      "avg_score": 557.61,
+      "last_publish_date": "2026-02-24",
+      "profile": "https://space.bilibili.com/2094083072"
+    },
+    {
+      "creator_key": "bilibili:368017534",
+      "nickname": "鲁老师录课直播技术",
+      "user_id": "368017534",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 3,
+      "total_likes": 226,
+      "total_collects": 812,
+      "total_comments": 4,
+      "total_plays": 8680,
+      "total_score": 2029.6,
+      "sample_titles": [
+        "用10%的价格做90%的效果，这是我最大追求！",
+        "鲁老师工作室祝各位老师新年快乐，第四年团建！",
+        "我靠卖课买了一套江景房，我来分享我的录制流程！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116089073697389",
+        "http://www.bilibili.com/video/av116083688210946",
+        "http://www.bilibili.com/video/av115976548911498"
+      ],
+      "last_publish_ts": 1771378806,
+      "rank_score": 2516.7,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 676.53,
+      "last_publish_date": "2026-02-18",
+      "profile": "https://space.bilibili.com/368017534"
+    },
+    {
+      "creator_key": "bilibili:3546770208459227",
+      "nickname": "路小北Lxb",
+      "user_id": "3546770208459227",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 3,
+      "total_likes": 177,
+      "total_collects": 569,
+      "total_comments": 12,
+      "total_plays": 6921,
+      "total_score": 1471.42,
+      "sample_titles": [
+        "视频号AI图文赛道，昨日创作分成到手495，喂饭级起号运营教程，一刀不剪三种变现",
+        "小红书虚拟电商，卖拍照预设12.9出了10000单，0粉也能直接变现，起号运营思路拆解",
+        "视频号经典老歌赛道，一个U盘卖了1502单，创作分成+橱窗带货玩法教程，三种变现一鱼多吃"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116051073370362",
+        "http://www.bilibili.com/video/av116029665641023",
+        "http://www.bilibili.com/video/av115984149054940"
+      ],
+      "last_publish_ts": 1770811500,
+      "rank_score": 1824.56,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "流量增长",
+        "内容生产"
+      ],
+      "avg_score": 490.47,
+      "last_publish_date": "2026-02-11",
+      "profile": "https://space.bilibili.com/3546770208459227"
+    },
+    {
+      "creator_key": "bilibili:83929251",
+      "nickname": "Gali白白酱",
+      "user_id": "83929251",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 3,
+      "total_likes": 217,
+      "total_collects": 475,
+      "total_comments": 18,
+      "total_plays": 5354,
+      "total_score": 1301.08,
+      "sample_titles": [
+        "用AI生成歌曲教程！从写词到编曲到发布全流程分享！步骤简单！附工具教程！一键出歌简单好操作！无需乐理知识，适合想尝试歌曲创作的音乐小白！",
+        "Ai生成歌曲太牛啦！战绩3个达不溜！工具教程奉上！方法简单~！写歌编曲直接拿捏！详细的AI工具资源、认证平台攻略和AI变现渠道教程也都整好啦~抱走开肝！",
+        "用AI作音乐赢麻了！首月收获2.1W！写歌编曲不在话下！单子干不完！操作简单！详细的AI工具资源、认证平台攻略和AI变现渠道教程也都整好啦~抱走开肝！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116021965165581",
+        "http://www.bilibili.com/video/av116124825950059",
+        "http://www.bilibili.com/video/av116017066021193"
+      ],
+      "last_publish_ts": 1771924344,
+      "rank_score": 1613.34,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 433.69,
+      "last_publish_date": "2026-02-24",
+      "profile": "https://space.bilibili.com/83929251"
+    },
+    {
+      "creator_key": "bilibili:3546911978031307",
+      "nickname": "Mr牛兄",
+      "user_id": "3546911978031307",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 4,
+      "total_likes": 101,
+      "total_collects": 432,
+      "total_comments": 48,
+      "total_plays": 4304,
+      "total_score": 1123.08,
+      "sample_titles": [
+        "每天10分钟，会复制粘贴！被严重低估的生僻字流量主赛道变现玩法，全流程详细拆解！",
+        "不露脸、不直播，退休阿姨也能学会！深扒公众号流量主厚黑学文案变现逻辑，借助AI每天10万+阅读！",
+        "复盘一个被低估的服务型赛道，9.9狂出5w+单，附AI隐藏玩法公开：用AI清洗非结构化数据，做信息差变现",
+        "点一下屏幕才出答案？“互动赛道”变现闭环，看完这个视频你就懂了，一篇作品只要几分钟！喂饭级教程公开"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116113719427305",
+        "http://www.bilibili.com/video/av116080248947445",
+        "http://www.bilibili.com/video/av115994886474703",
+        "http://www.bilibili.com/video/av115972052619040"
+      ],
+      "last_publish_ts": 1771762200,
+      "rank_score": 1527.39,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "内容生产",
+        "流量增长"
+      ],
+      "avg_score": 280.77,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/3546911978031307"
+    },
+    {
+      "creator_key": "bilibili:3546723416803880",
+      "nickname": "Hebe海外搞钱笔记",
+      "user_id": "3546723416803880",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 3,
+      "total_likes": 118,
+      "total_collects": 394,
+      "total_comments": 2,
+      "total_plays": 2823,
+      "total_score": 965.4599999999999,
+      "sample_titles": [
+        "挑战 10 小时：从零开始开发数字产品并变现，我真的做到了！——Deya【中英字幕】",
+        "财富正在重新洗牌！TOP1%拥有的6项硬核技能【中英字幕】",
+        "油管大神DanKoe：个人商业崛起：如何把自己活成一家公司【中英字幕】"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116032903582057",
+        "http://www.bilibili.com/video/av116028524728660",
+        "http://www.bilibili.com/video/av116113903982211"
+      ],
+      "last_publish_ts": 1771758271,
+      "rank_score": 1197.17,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "产品设计",
+        "内容生产",
+        "品牌心智"
+      ],
+      "avg_score": 321.82,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/3546723416803880"
+    },
+    {
+      "creator_key": "bilibili:73376988",
+      "nickname": "鲤鱼_Koi",
+      "user_id": "73376988",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 332,
+      "total_collects": 498,
+      "total_comments": 32,
+      "total_plays": 9269,
+      "total_score": 1561.38,
+      "sample_titles": [
+        "『鯉魚製造』◎ 自媒体之神2.0 | 流量圣体 | 全平台爆火 | 粉丝支持 | 多渠道快速变现 | 成为行业标杆 | 打造现象级IP和个人品牌"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116050435774310"
+      ],
+      "last_publish_ts": 1770789237,
+      "rank_score": 1092.97,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "流量增长",
+        "品牌心智"
+      ],
+      "avg_score": 1561.38,
+      "last_publish_date": "2026-02-11",
+      "profile": "https://space.bilibili.com/73376988"
+    },
+    {
+      "creator_key": "bilibili:3461579978836427",
+      "nickname": "剪-映-视频剪辑教学",
+      "user_id": "3461579978836427",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 135,
+      "total_collects": 384,
+      "total_comments": 6,
+      "total_plays": 6402,
+      "total_score": 1040.04,
+      "sample_titles": [
+        "【手机剪映全套教程】震撼发布！72小时学会剪映！零基础入门到副业变现，适合想兼职，2026手机剪映专业版从入门到精通"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116022317155933"
+      ],
+      "last_publish_ts": 1771417740,
+      "rank_score": 728.03,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 1040.04,
+      "last_publish_date": "2026-02-18",
+      "profile": "https://space.bilibili.com/3461579978836427"
+    },
+    {
+      "creator_key": "bilibili:600476837",
+      "nickname": "认知进化的Eleven",
+      "user_id": "600476837",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 87,
+      "total_collects": 377,
+      "total_comments": 2,
+      "total_plays": 3941,
+      "total_score": 922.82,
+      "sample_titles": [
+        "经典书籍《你的副业变现指南》精读：用时间折旧换小钱，越做越穷！教你稳妥赚出第二收入！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115959016787821"
+      ],
+      "last_publish_ts": 1770517380,
+      "rank_score": 645.97,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 922.82,
+      "last_publish_date": "2026-02-08",
+      "profile": "https://space.bilibili.com/600476837"
+    },
+    {
+      "creator_key": "bilibili:3690990881737141",
+      "nickname": "AI漫剧制作全流程",
+      "user_id": "3690990881737141",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 147,
+      "total_collects": 207,
+      "total_comments": 139,
+      "total_plays": 1975,
+      "total_score": 809.0,
+      "sample_titles": [
+        "【保姆级教程】2026最新AI动画短片制作，从0到1带你AI动画商业变现，10个作品涨粉30W+，手把手教你ComfyUI+豆包+即梦AI玩转AI短剧赛道"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116004516530859"
+      ],
+      "last_publish_ts": 1770088934,
+      "rank_score": 566.3,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "流量增长"
+      ],
+      "avg_score": 809.0,
+      "last_publish_date": "2026-02-03",
+      "profile": "https://space.bilibili.com/3690990881737141"
+    },
+    {
+      "creator_key": "bilibili:3546870295038466",
+      "nickname": "乐哥短视频分享",
+      "user_id": "3546870295038466",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 2,
+      "total_likes": 54,
+      "total_collects": 142,
+      "total_comments": 10,
+      "total_plays": 2066,
+      "total_score": 394.32000000000005,
+      "sample_titles": [
+        "快手上有一个非常重要的开关打开后可以接变现任务适合新手小白",
+        "快手短视频变现最新玩法1月份搭建教程一部手机就可以操作"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115994651529867",
+        "http://www.bilibili.com/video/av115961097100643"
+      ],
+      "last_publish_ts": 1769938108,
+      "rank_score": 441.64,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 197.16,
+      "last_publish_date": "2026-02-01",
+      "profile": "https://space.bilibili.com/3546870295038466"
+    },
+    {
+      "creator_key": "bilibili:3546887187598144",
+      "nickname": "凯承俊",
+      "user_id": "3546887187598144",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 4,
+      "total_likes": 23,
+      "total_collects": 137,
+      "total_comments": 2,
+      "total_plays": 1200,
+      "total_score": 324.0,
+      "sample_titles": [
+        "小红书新规出来了！虚拟产品到底还能不能做？给你们分享5个解决办法",
+        "虚拟资料怎么做？怎么选品？怎么避免侵权？推荐4类虚拟资料赛道，需求大，好出单",
+        "怎么卖虚拟资料？怎么选品？推荐4类虚拟资料赛道，不侵权，好出单，虚拟资料拆解046期",
+        "虚拟资料怎么做？怎么选品？分享一个小红书选品案例库，涵盖小红书90%赛道，虚拟资料拆解045期"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116034950398579",
+        "http://www.bilibili.com/video/av116012049499250",
+        "http://www.bilibili.com/video/av115983847066164",
+        "http://www.bilibili.com/video/av115970626619357"
+      ],
+      "last_publish_ts": 1770553028,
+      "rank_score": 440.64,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "流量增长",
+        "内容生产"
+      ],
+      "avg_score": 81.0,
+      "last_publish_date": "2026-02-08",
+      "profile": "https://space.bilibili.com/3546887187598144"
+    },
+    {
+      "creator_key": "bilibili:3546970553584384",
+      "nickname": "亦子赫",
+      "user_id": "3546970553584384",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 4,
+      "total_likes": 21,
+      "total_collects": 127,
+      "total_comments": 3,
+      "total_plays": 1593,
+      "total_score": 311.36,
+      "sample_titles": [
+        "小红书新规出来了！虚拟产品还能做吗？分享5个解决方法",
+        "怎么卖虚拟资料？怎么避免侵权？怎么选品？说4个虚拟资料赛道，需求大，好出单",
+        "虚拟资料怎么做？怎么选品？推荐4种虚拟资料赛道，不侵权，好出单，虚拟资料拆解046期",
+        "怎么卖虚拟资料？怎么避免侵权？分享一个小红书选品案例库，虚拟资料拆解045期"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116035353122118",
+        "http://www.bilibili.com/video/av116012519331227",
+        "http://www.bilibili.com/video/av115984249787520",
+        "http://www.bilibili.com/video/av115972220395011"
+      ],
+      "last_publish_ts": 1770559151,
+      "rank_score": 423.45,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "内容生产",
+        "产品设计"
+      ],
+      "avg_score": 77.84,
+      "last_publish_date": "2026-02-08",
+      "profile": "https://space.bilibili.com/3546970553584384"
+    },
+    {
+      "creator_key": "bilibili:3690972695234765",
+      "nickname": "即梦官方AI漫剧教程",
+      "user_id": "3690972695234765",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 102,
+      "total_collects": 149,
+      "total_comments": 119,
+      "total_plays": 771,
+      "total_score": 593.92,
+      "sample_titles": [
+        "【保姆级教程】2026最新AI动画短片制作，从0到1带你AI动画商业变现，10个作品涨粉30W+，手把手教你ComfyUI+豆包+即梦AI玩转AI短剧赛道"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115988427184087"
+      ],
+      "last_publish_ts": 1769843619,
+      "rank_score": 415.74,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "流量增长"
+      ],
+      "avg_score": 593.92,
+      "last_publish_date": "2026-01-31",
+      "profile": "https://space.bilibili.com/3690972695234765"
+    },
+    {
+      "creator_key": "bilibili:470042957",
+      "nickname": "李心宝爱玩Ai",
+      "user_id": "470042957",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 117,
+      "total_collects": 204,
+      "total_comments": 5,
+      "total_plays": 2557,
+      "total_score": 583.64,
+      "sample_titles": [
+        "接触comfyui一年回顾，你敢信？用Lib+RH，普通人也能每月有稳定Ai兼职变现！Ai最简单的变现起号养号流程，lib RH每月固定工资"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116114239525103"
+      ],
+      "last_publish_ts": 1771762946,
+      "rank_score": 408.55,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "流量增长"
+      ],
+      "avg_score": 583.64,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/470042957"
+    },
+    {
+      "creator_key": "bilibili:3546659462056562",
+      "nickname": "AIGC指南",
+      "user_id": "3546659462056562",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 274,
+      "total_collects": 85,
+      "total_comments": 4,
+      "total_plays": 915,
+      "total_score": 468.3,
+      "sample_titles": [
+        "【保姆级教程】2026最新AI动画短片制作，从0到1带你AI动画商业变现，10个作品涨粉30W+，手把手教你ComfyUI+豆包+即梦AI玩转AI短剧赛道"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115988326586254"
+      ],
+      "last_publish_ts": 1769842085,
+      "rank_score": 327.81,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "流量增长"
+      ],
+      "avg_score": 468.3,
+      "last_publish_date": "2026-01-31",
+      "profile": "https://space.bilibili.com/3546659462056562"
+    },
+    {
+      "creator_key": "bilibili:700855596",
+      "nickname": "穗穗西语",
+      "user_id": "700855596",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 68,
+      "total_collects": 176,
+      "total_comments": 5,
+      "total_plays": 1706,
+      "total_score": 461.62,
+      "sample_titles": [
+        "【全600集】298小时讲完的西语入门学习教程！全程干货无废话！通俗易懂，学完秒变B2大神！我付费你白嫖！这还学不会，我直接退出西语圈！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116119004255618"
+      ],
+      "last_publish_ts": 1771848000,
+      "rank_score": 323.13,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 461.62,
+      "last_publish_date": "2026-02-23",
+      "profile": "https://space.bilibili.com/700855596"
+    },
+    {
+      "creator_key": "bilibili:327708750",
+      "nickname": "一只枫狗",
+      "user_id": "327708750",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 52,
+      "total_collects": 148,
+      "total_comments": 52,
+      "total_plays": 1476,
+      "total_score": 455.52,
+      "sample_titles": [
+        "Suno生成音乐怎么变现？战绩3.8达不溜！新手教程来啦！零基础也能用Suno创作出专业歌曲！快存下吧~"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116010724103639"
+      ],
+      "last_publish_ts": 1770604440,
+      "rank_score": 318.86,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 455.52,
+      "last_publish_date": "2026-02-09",
+      "profile": "https://space.bilibili.com/327708750"
+    },
+    {
+      "creator_key": "bilibili:399356007",
+      "nickname": "站长三月",
+      "user_id": "399356007",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 60,
+      "total_collects": 167,
+      "total_comments": 1,
+      "total_plays": 2369,
+      "total_score": 442.88,
+      "sample_titles": [
+        "全网最通俗节点搭建课程，一条命令完成搭建多种协议，TK短视频直播均可运营！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116069410800331"
+      ],
+      "last_publish_ts": 1771079090,
+      "rank_score": 310.02,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "产品设计"
+      ],
+      "avg_score": 442.88,
+      "last_publish_date": "2026-02-14",
+      "profile": "https://space.bilibili.com/399356007"
+    },
+    {
+      "creator_key": "bilibili:3546914580597113",
+      "nickname": "AI制作视频",
+      "user_id": "3546914580597113",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 171,
+      "total_collects": 101,
+      "total_comments": 8,
+      "total_plays": 1119,
+      "total_score": 407.38,
+      "sample_titles": [
+        "【保姆级教程】2026最新AI动画短片制作，从0到1带你AI动画商业变现，10个作品涨粉30W+，手把手教你ComfyUI+豆包+即梦AI玩转AI短剧赛道"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115976800571328"
+      ],
+      "last_publish_ts": 1769665980,
+      "rank_score": 285.17,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "选题定位",
+        "流量增长"
+      ],
+      "avg_score": 407.38,
+      "last_publish_date": "2026-01-29",
+      "profile": "https://space.bilibili.com/3546914580597113"
+    },
+    {
+      "creator_key": "bilibili:1700499385",
+      "nickname": "网工元元",
+      "user_id": "1700499385",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 40,
+      "total_collects": 148,
+      "total_comments": 6,
+      "total_plays": 1403,
+      "total_score": 373.06,
+      "sample_titles": [
+        "网络工程师大佬手把手教你学习使用公网IP实现端口映射、NAT配置项目实战演示，全程干货无废话！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115998661285487"
+      ],
+      "last_publish_ts": 1771491600,
+      "rank_score": 261.14,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "品牌心智"
+      ],
+      "avg_score": 373.06,
+      "last_publish_date": "2026-02-19",
+      "profile": "https://space.bilibili.com/1700499385"
+    },
+    {
+      "creator_key": "bilibili:12190166",
+      "nickname": "LetsDoBetter",
+      "user_id": "12190166",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 42,
+      "total_collects": 156,
+      "total_comments": 1,
+      "total_plays": 693,
+      "total_score": 369.36,
+      "sample_titles": [
+        "（中英校译）曼哈顿金牌销售：57分钟内掌握价值200亿美元的销售知识 Ryan Serhant【LetsDoBetter vol.50】"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116101572730391"
+      ],
+      "last_publish_ts": 1771905600,
+      "rank_score": 258.55,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "转化成交",
+        "品牌心智"
+      ],
+      "avg_score": 369.36,
+      "last_publish_date": "2026-02-24",
+      "profile": "https://space.bilibili.com/12190166"
+    },
+    {
+      "creator_key": "bilibili:295542651",
+      "nickname": "加不留根",
+      "user_id": "295542651",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 10,
+      "total_likes": 25,
+      "total_collects": 19,
+      "total_comments": 1,
+      "total_plays": 3887,
+      "total_score": 142.24,
+      "sample_titles": [
+        "26年搬砖游戏推荐：4 款实测易变现｜散人怀旧党挂机党全覆盖，不用盲目刷本，不踩灰色陷阱，新手直接上手零门槛！",
+        "2026年前长期稳定搬砖四款优选游戏 无套路易变现 覆盖端游手游 附核心收益逻辑 新手可入 助你年前稳赚副业收入",
+        "26年搬砖游戏推荐：6款可搬可玩手游全解析，火炬之光无限/三角洲行动等，零氪散人适配，操作具体、合规变现，边玩边增收不踩坑",
+        "26年搬砖游戏推荐：2 月休闲佛系游戏推荐，多款作品玩法轻松不内卷，游戏内经济环境稳定，玩家可按自身节奏游戏，积累资源后合理变现，无需高强度投入，适合追求轻松体",
+        "26年搬砖游戏推荐：2 月低门槛游戏推荐，多款作品无需额外投入，玩法简单易上手，游戏内资源产出稳定，玩家可通过正常游戏积累资源并实现变现，零门槛体验，适合各类想",
+        "26年搬砖游戏推荐：2 月开春搬砖加餐！5 款精品神作重磅推荐，散人刷子党全适配，玩法有趣收益稳定，不用复杂操作，碎片时间就能轻松变现，开春想多赚点的兄弟！"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116051123638717",
+        "http://www.bilibili.com/video/av116044983246307",
+        "http://www.bilibili.com/video/av116040419907329",
+        "http://www.bilibili.com/video/av116011428812846"
+      ],
+      "last_publish_ts": 1771858140,
+      "rank_score": 244.65,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "流量增长",
+        "内容生产"
+      ],
+      "avg_score": 14.22,
+      "last_publish_date": "2026-02-23",
+      "profile": "https://space.bilibili.com/295542651"
+    },
+    {
+      "creator_key": "bilibili:14951160",
+      "nickname": "綺麗なミカヅキ",
+      "user_id": "14951160",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 2,
+      "total_likes": 17,
+      "total_collects": 90,
+      "total_comments": 2,
+      "total_plays": 699,
+      "total_score": 213.98,
+      "sample_titles": [
+        "单条作品获赞97.8万！教你用AI搞定花卉视频的制作、账号快速起号和多种变现方法",
+        "私域冷门赛道 客单价198元 引流模板简单 人群精准 转化45% 单人一天大概收益是2000+"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av115998761947613",
+        "http://www.bilibili.com/video/av115998963274340"
+      ],
+      "last_publish_ts": 1770202800,
+      "rank_score": 239.66,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "流量增长",
+        "选题定位",
+        "内容生产"
+      ],
+      "avg_score": 106.99,
+      "last_publish_date": "2026-02-04",
+      "profile": "https://space.bilibili.com/14951160"
+    },
+    {
+      "creator_key": "bilibili:387595958",
+      "nickname": "杨淑娟Python",
+      "user_id": "387595958",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 30,
+      "total_collects": 112,
+      "total_comments": 22,
+      "total_plays": 982,
+      "total_score": 306.64,
+      "sample_titles": [
+        "python常见编程500例_杨淑娟手把手讲解_2026年Python实战编程500例连载中_Python编程霸主：500个实战案例统治代码世界_python基"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116113836871721"
+      ],
+      "last_publish_ts": 1771756868,
+      "rank_score": 214.65,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "品牌心智"
+      ],
+      "avg_score": 306.64,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/387595958"
+    }
+  ],
+  "top_themes": [
+    [
+      "内容生产",
+      128
+    ],
+    [
+      "流量增长",
+      69
+    ],
+    [
+      "产品设计",
+      45
+    ],
+    [
+      "品牌心智",
+      41
+    ],
+    [
+      "选题定位",
+      23
+    ],
+    [
+      "私域运营",
+      22
+    ],
+    [
+      "转化成交",
+      10
+    ]
+  ],
+  "top_tokens": [
+    [
+      "副业变现",
+      63
+    ],
+    [
+      "知识变现",
+      47
+    ],
+    [
+      "自媒体变现",
+      46
+    ],
+    [
+      "涨粉变现",
+      25
+    ],
+    [
+      "课程运营",
+      17
+    ],
+    [
+      "知识付费",
+      13
+    ],
+    [
+      "个人IP",
+      13
+    ],
+    [
+      "内容创业",
+      11
+    ],
+    [
+      "涨粉",
+      9
+    ],
+    [
+      "豆包",
+      7
+    ],
+    [
+      "赛道",
+      7
+    ],
+    [
+      "年搬砖游戏推荐",
+      7
+    ],
+    [
+      "小红书运营",
+      7
+    ],
+    [
+      "副业",
+      7
+    ],
+    [
+      "个人品牌",
+      6
+    ],
+    [
+      "轻资产创业",
+      6
+    ],
+    [
+      "零基础可做",
+      6
+    ],
+    [
+      "矩阵",
+      6
+    ],
+    [
+      "私域转化",
+      6
+    ],
+    [
+      "带你零基础打造爆款A",
+      6
+    ],
+    [
+      "I短视频",
+      6
+    ],
+    [
+      "AI爆款短视频创作变",
+      6
+    ],
+    [
+      "现全通关训练课",
+      6
+    ],
+    [
+      "含群服务",
+      6
+    ],
+    [
+      "知识IP",
+      5
+    ],
+    [
+      "怎么选品",
+      5
+    ],
+    [
+      "赚钱",
+      5
+    ],
+    [
+      "成品小程序广告变现",
+      5
+    ],
+    [
+      "DeepSeekAi",
+      5
+    ],
+    [
+      "新媒体运营",
+      5
+    ]
+  ],
+  "actions": [
+    "做《30秒口播模板》：一键改行业词，批量产出。",
+    "做《14天起号实验》：固定AB测试封面和开场。",
+    "做《9.9到1999产品梯度》：样品课-小课-训练营闭环。",
+    "做《可信人设资产》：案例证据链和失败复盘。",
+    "做《高客单赛道地图》：先垂类再定产品层级。",
+    "做《社群复购机制》：打卡+作业+案例库三件套。"
+  ],
+  "generated_at": "2026-02-25T18:01:00.009986"
+}

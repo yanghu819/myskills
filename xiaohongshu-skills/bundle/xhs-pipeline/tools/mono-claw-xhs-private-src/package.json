@@ -1,0 +1,15 @@
+{
+  "name": "mono-claw-xhs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XHS + HardThing dual-skill portable pipeline",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "playwright-core": "^1.55.0"
+  },
+  "scripts": {
+    "check:xhs": "node --check scripts/xhs_ai.mjs && node --check scripts/xhs_edit.mjs",
+    "verify:offline": "bash scripts/verify_offline.sh",
+    "verify:live": "bash scripts/verify_live.sh"
+  }
+}

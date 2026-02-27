@@ -1,0 +1,4 @@
+interface:
+  display_name: "NotebookLM Book Pipeline"
+  short_description: "Split books and batch-generate NotebookLM assets"
+  default_prompt: "Use $notebooklm-book-pipeline to split a book into chunks, import them to NotebookLM, and generate reusable report/video/quiz materials."

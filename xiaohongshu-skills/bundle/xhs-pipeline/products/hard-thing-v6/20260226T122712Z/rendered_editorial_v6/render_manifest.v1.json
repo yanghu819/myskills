@@ -1,0 +1,18 @@
+{
+  "width": 1080,
+  "height": 1440,
+  "card_count": 10,
+  "images": [
+    "01-card.png",
+    "02-card.png",
+    "03-card.png",
+    "04-card.png",
+    "05-card.png",
+    "06-card.png",
+    "07-card.png",
+    "08-card.png",
+    "09-card.png",
+    "10-card.png"
+  ],
+  "generated_at": "2026-02-26T13:03:50.886179+00:00"
+}

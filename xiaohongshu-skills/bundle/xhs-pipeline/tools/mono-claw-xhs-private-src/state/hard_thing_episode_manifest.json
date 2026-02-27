@@ -1,0 +1,125 @@
+{
+  "series_id": "hard-thing-4-ep-v1",
+  "notebook_id": "01f1afb7-32da-485f-bf68-b0bb2b8e6bef",
+  "book_title": "The Hard Thing About Hard Things",
+  "defaults": {
+    "language": "zh_Hans",
+    "video_format": "explainer",
+    "video_style": "classic",
+    "retry_minutes": [
+      30,
+      90
+    ]
+  },
+  "episodes": [
+    {
+      "episode_id": "E01",
+      "title": "第一部分：角色切换与生存决策",
+      "learning_goal": "建立创始人从理想主义到现实管理的决策底座",
+      "source_titles": [
+        "CH01-introduction.md",
+        "CH02-chapter-1-from-communist-to-venture-capitalist-this-here-is-all-about.md",
+        "CH03-chapter-2-did-you-think-i-d-lay-down-and-die.md"
+      ],
+      "source_ids": [
+        "309a60ff-6684-4553-a6ef-3db1838c08bd",
+        "d7486371-8e40-463d-b636-ffa8464f6b7f",
+        "234b63ed-f235-4ddb-9f0f-c70dc08be5d9"
+      ],
+      "steering_prompt": "你在讲《Hard Thing》系列的第一部分：角色切换与生存决策。目标：建立创始人从理想主义到现实管理的决策底座。只基于已选择的sources，先给结论再给证据，结构是：问题-方法-证据-边界。要求：中文、短句、可执行、不要长引用、不要空话。最后给3条可落地动作，每条<=18字。",
+      "status": "done",
+      "artifacts": {
+        "video": "state/runtime/outputs/hard-thing-series/hardthing-20260226T053540Z-e681a5702a/E01_第一部分-角色切换与生存决策/video.mp4",
+        "report": "state/runtime/outputs/hard-thing-series/hardthing-20260226T053540Z-e681a5702a/E01_第一部分-角色切换与生存决策/report.md",
+        "slide_deck": "",
+        "quiz": "state/runtime/outputs/hard-thing-series/hardthing-20260226T053540Z-e681a5702a/E01_第一部分-角色切换与生存决策/quiz.json",
+        "flashcards": "state/runtime/outputs/hard-thing-series/hardthing-20260226T053540Z-e681a5702a/E01_第一部分-角色切换与生存决策/flashcards.json",
+        "citation_csv": "state/runtime/outputs/hard-thing-series/hardthing-20260226T053540Z-e681a5702a/E01_第一部分-角色切换与生存决策/citations.csv",
+        "copy_md": "state/runtime/outputs/hard-thing-series/hardthing-20260226T053540Z-e681a5702a/E01_第一部分-角色切换与生存决策/publish_copy.md"
+      },
+      "last_error": "",
+      "updated_at": "2026-02-26T05:35:46.553217+00:00"
+    },
+    {
+      "episode_id": "E02",
+      "title": "第二部分：CEO心理与高压博弈",
+      "learning_goal": "掌握高压下的心理稳定与关键人事决策",
+      "source_titles": [
+        "CH04-chapter-3-this-time-with-feeling-i-move-onward-the-only-direction.md",
+        "CH05-chapter-4-about-the-struggle-life-is-struggle-karl-marx.md",
+        "CH06-chapter-5-i-ain-t-got-time-for-you-fuckin-artist-niggas.md"
+      ],
+      "source_ids": [
+        "3d5c3928-582f-4b0c-b1d0-a3ef9f8d7880",
+        "41b4a567-fb41-4ade-b5df-e34a5f7112f0",
+        "d424710f-2ea8-4a80-9e8b-7b0d12c8f280"
+      ],
+      "steering_prompt": "你在讲《Hard Thing》系列的第二部分：CEO心理与高压博弈。目标：掌握高压下的心理稳定与关键人事决策。只基于已选择的sources，先给结论再给证据，结构是：问题-方法-证据-边界。要求：中文、短句、可执行、不要长引用、不要空话。最后给3条可落地动作，每条<=18字。",
+      "status": "done",
+      "artifacts": {
+        "video": "resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/video.mp4",
+        "report": "resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/report.md",
+        "slide_deck": "",
+        "quiz": "resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/quiz.json",
+        "flashcards": "resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/flashcards.json",
+        "citation_csv": "resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/citations.csv",
+        "copy_md": "resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/publish_copy.md"
+      },
+      "last_error": "",
+      "updated_at": "2026-02-25T04:25:23.622536+00:00"
+    },
+    {
+      "episode_id": "E03",
+      "title": "第三部分：组织系统与领导力升级",
+      "learning_goal": "把管理动作沉淀为可复制的领导流程",
+      "source_titles": [
+        "CH07-chapter-6-concerning-the-going-concern-this-ain-t-for-no-fuck-niggas.md",
+        "CH08-chapter-7-how-to-lead-even-when-you-don-t-know-where-you-are-going-this-for-every-ghetto-in-the-hood.md"
+      ],
+      "source_ids": [
+        "76346255-8a69-46fc-bae9-df52ef2173b7",
+        "9b679afe-5fef-4928-924c-6175fce09be8"
+      ],
+      "steering_prompt": "你在讲《Hard Thing》系列的第三部分：组织系统与领导力升级。目标：把管理动作沉淀为可复制的领导流程。只基于已选择的sources，先给结论再给证据，结构是：问题-方法-证据-边界。要求：中文、短句、可执行、不要长引用、不要空话。最后给3条可落地动作，每条<=18字。",
+      "status": "done",
+      "artifacts": {
+        "video": "resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/video.mp4",
+        "report": "resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/report.md",
+        "slide_deck": "",
+        "quiz": "resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/quiz.json",
+        "flashcards": "resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/flashcards.json",
+        "citation_csv": "resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/citations.csv",
+        "copy_md": "resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/publish_copy.md"
+      },
+      "last_error": "",
+      "updated_at": "2026-02-25T04:30:12.108851+00:00"
+    },
+    {
+      "episode_id": "E04",
+      "title": "第四部分：机制反直觉与执行模板",
+      "learning_goal": "用反直觉原则收束全书并形成执行模板",
+      "source_titles": [
+        "CH09-chapter-8-first-rule-of-entrepreneurship-there-are-no-rules-that-the-that-the-that-that-don-t-kill-me.md",
+        "CH10-chapter-9-the-end-of-the-beginning-we-walk-the-same-path-but-got-on-different-shoes.md"
+      ],
+      "source_ids": [
+        "d9fbcc2f-4e1e-4aeb-9e0f-fd6af27bbb25",
+        "ab85d73a-1669-4933-893a-87ce5c11c5c5"
+      ],
+      "steering_prompt": "你在讲《Hard Thing》系列的第四部分：机制反直觉与执行模板。目标：用反直觉原则收束全书并形成执行模板。只基于已选择的sources，先给结论再给证据，结构是：问题-方法-证据-边界。要求：中文、短句、可执行、不要长引用、不要空话。最后给3条可落地动作，每条<=18字。",
+      "status": "done",
+      "artifacts": {
+        "video": "resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/video.mp4",
+        "report": "resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/report.md",
+        "slide_deck": "",
+        "quiz": "resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/quiz.json",
+        "flashcards": "resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/flashcards.json",
+        "citation_csv": "resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/citations.csv",
+        "copy_md": "resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/publish_copy.md"
+      },
+      "last_error": "",
+      "updated_at": "2026-02-25T04:34:29.325890+00:00"
+    }
+  ],
+  "updated_at": "2026-02-25T02:05:00.068525+00:00"
+}

@@ -1,0 +1,18 @@
+pipeline:
+  timezone: Asia/Shanghai
+  scope: xhs-hardthing
+  stages:
+    - check-env
+    - xhs-watch
+    - xhs-judge
+    - hardthing-manifest
+    - hardthing-next
+    - hardthing-bundle
+    - feishu-deliver
+  defaults:
+    top_n: 30
+    days: 30
+    bili_pages: 2
+    hardthing_episodes: 4
+    hardthing_mode: next
+    hardthing_send_media: false

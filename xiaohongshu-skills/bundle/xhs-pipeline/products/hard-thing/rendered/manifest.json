@@ -1,0 +1,31 @@
+{
+  "source_markdown": "/Users/hy3/Desktop/setting/xhs-pipeline/products/hard-thing/xhs_cards_render.md",
+  "output_dir": "/Users/hy3/Desktop/setting/xhs-pipeline/products/hard-thing/rendered",
+  "card_size": {
+    "width": 1080,
+    "height": 1440
+  },
+  "count": 8,
+  "cards": [
+    "01-card.png",
+    "02-card.png",
+    "03-card.png",
+    "04-card.png",
+    "05-card.png",
+    "06-card.png",
+    "07-card.png",
+    "08-card.png"
+  ],
+  "missing_images": [],
+  "cover": {
+    "enabled": true,
+    "title": "创业维艰：我读完后反复翻看的 10 条管理真相",
+    "subtitle": "给创业者、管理者的高压决策手册 核心主题：困难时刻如何做“代价最小、收益最大”的决定",
+    "author": "",
+    "image_src": ""
+  },
+  "signature_text": "-- Hy3",
+  "publish": {
+    "requested": false
+  }
+}

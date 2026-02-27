@@ -1,0 +1,83 @@
+{
+  "run_id": "20260225_180009",
+  "profiles": [
+    {
+      "profile": "fresh_balanced",
+      "meta": {
+        "RUN_ID": "20260225_180009",
+        "NOTES": "247",
+        "SOURCE_DISTRIBUTION": "{\"bilibili\": 247}",
+        "MD_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180009.md",
+        "JSON_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180009.json"
+      },
+      "score": 97.2,
+      "judge": {
+        "notes_count": 247,
+        "fresh14": 19,
+        "multi_note": 14,
+        "noise": 1,
+        "strong": 18,
+        "method_density": 151,
+        "growth_density": 146
+      }
+    },
+    {
+      "profile": "fresh_fast",
+      "meta": {
+        "RUN_ID": "20260225_180100",
+        "SOURCE": "cache_only",
+        "MD_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180100.md"
+      },
+      "score": 97.2,
+      "judge": {
+        "notes_count": 247,
+        "fresh14": 19,
+        "multi_note": 14,
+        "noise": 1,
+        "strong": 18,
+        "method_density": 151,
+        "growth_density": 146
+      }
+    },
+    {
+      "profile": "wide_scan",
+      "meta": {
+        "RUN_ID": "20260225_180118",
+        "NOTES": "7",
+        "SOURCE_DISTRIBUTION": "{\"bilibili\": 7}",
+        "MD_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180118.md",
+        "JSON_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180118.json"
+      },
+      "score": 20.5,
+      "judge": {
+        "notes_count": 7,
+        "fresh14": 5,
+        "multi_note": 1,
+        "noise": 1,
+        "strong": 1,
+        "method_density": 6,
+        "growth_density": 1
+      }
+    }
+  ],
+  "best_profile": "fresh_balanced",
+  "best_score": 97.2,
+  "best_judge": {
+    "notes_count": 247,
+    "fresh14": 19,
+    "multi_note": 14,
+    "noise": 1,
+    "strong": 18,
+    "method_density": 151,
+    "growth_density": 146
+  },
+  "best_meta": {
+    "RUN_ID": "20260225_180009",
+    "NOTES": "247",
+    "SOURCE_DISTRIBUTION": "{\"bilibili\": 247}",
+    "MD_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180009.md",
+    "JSON_PATH": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_watch_20260225_180009.json"
+  },
+  "best_payload_generated_at": "2026-02-25T18:01:00.009986",
+  "message_path": "/Users/torusmini/.openclaw/workspace/logs/xhs_kol_autojudge_20260225_180009.md"
+}

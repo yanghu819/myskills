@@ -1,0 +1,69 @@
+# RESULTS SUMMARY
+
+- Generated At: 2026-02-26T14:53:14.732956
+- Repo Root: `.`
+- File Count: `56`
+- Total Size: `157.1MB`
+
+## Key Inclusions
+- XHS watch/autojudge scripts + latest sample outputs
+- HardThing 4-part complete bundle samples (E01-E04)
+- NotebookLM pipeline scripts and state
+
+## Files (path | size | sha256)
+- `resources/books/The Hard Thing About Hard Things.epub` | `319.9KB` | `aa42bd9c37e010c4de27d0315516a82824221f782e3e2c02cfdb89a333f5631d`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/citations.csv` | `3.1KB` | `2b3f1d3de9f4ba81962783128e0d05b231cfe85f60a782ab9a108a2a6a562d64`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/flashcards.json` | `10.5KB` | `8f0eb51c2c5da7c415009febca1b4bcdc23aa6e37bf84fc46f6645c4654a0617`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/publish_copy.md` | `1.8KB` | `f79c58c47f004d5138859d10c2b8ca176718018ae474276a3142ff0902ab9118`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/quiz.json` | `14.6KB` | `3955816bf92ce777e66e36c985b00b0fec802c849f3359a48dd893f8504392d9`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/report.md` | `3.5KB` | `40ef26137cfb87193921641bdb1611241e116e61ab0313a6b1f2a26aa4f6f322`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/video.mp4` | `39.8MB` | `f18d0c762a225761ad73728eca5001452f6d3a0a391b552edd41c599df9c651f`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E01_第一部分：角色切换与生存决策/video_small.mp4` | `8.0MB` | `5582e4ddac5192cff8ad437ec1d0d0f7a657f452e78bc048516f2c7b9cbe6eab`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/citations.csv` | `3.7KB` | `886f01c1b45e085a51d84f8e6434cdd240beeea8c8043e0db1d73efae5f2d6b0`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/flashcards.json` | `17.3KB` | `d3dbec8163ee36848b68f0a5fd06858cc3e240b60c546fd8e9870c1d97cb354b`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/publish_copy.md` | `1.8KB` | `a40be97a8136576a35fbc92b9daa76937c010b6a8c64c1e189bef94bb6132eff`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/quiz.json` | `14.9KB` | `bca85c8ac8d94b03860b697e7c98b5f63d05024b929412671e3b93872ad1286b`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/report.md` | `4.7KB` | `64a8a5675c1cd0549ad28178d6fa0473863063f0f0adbe7ce459c740c9aae557`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/video.mp4` | `28.6MB` | `a60a260369fa2a78eaa3eac9f0d5dfc06317a42a40ecb4926352ff37a264313e`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E02_第二部分：CEO心理与高压博弈/video_small.mp4` | `5.9MB` | `52ce1d421f3578558ac1d81205626bc6ee3cf210c43b089dec22db82781e082e`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/citations.csv` | `2.3KB` | `275bab924dc8a0705a1c99e307d775f2c346fdad8f984dae6fa01b1af6113c13`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/flashcards.json` | `17.5KB` | `af37caee9c01afd324b640dbc0a5eeeff07601d10a63383b0e33599115bf3418`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/publish_copy.md` | `1.8KB` | `ee7ab3935fa7c92f17395a2f1eac3fd917bb7b5b70d8ff6f4e34b3f11687b012`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/quiz.json` | `15.0KB` | `6318fbe997f8236860f033fc1af168cd4b11d370e0b81cec05a6e58e904ce082`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/report.md` | `4.8KB` | `d682c2c8ecd6a53089288a64ce40f5b3d50e2ce5595a3dbe57ba482db5cc8942`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/video.mp4` | `32.6MB` | `22b6f9bfcb7fc2475bef3f78c9235b1fe673e73ad3c21ce49daf97e29d86e7ff`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E03_第三部分：组织系统与领导力升级/video_small.mp4` | `7.0MB` | `1637081f18506b9699bc46c6169b5d28e13151ea4cc3d0517e0bd9b825ae274a`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/citations.csv` | `2.0KB` | `037e75764d74337707d469c23219668f45e3ea881a850dd053d69d0e564c2e39`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/flashcards.json` | `15.3KB` | `6dbd796d878ba5021f1187375444910505c3a41f360ed0dc2f07bcb81d297853`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/publish_copy.md` | `1.8KB` | `50f5f249e497220dcd648113654b9c3265eb081b59d223772318fc8fe013e769`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/quiz.json` | `14.8KB` | `9cfd9d1a5a5f083ecc62fba740148d352fe6878ddb0d0e5fc5e6452a3dd40c67`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/report.md` | `3.7KB` | `d52f338f8d8f19f1c81c788ca9e8f6b8fa0aa244f3746b8000e90f67ccca1960`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/video.mp4` | `28.4MB` | `47da07f6827812f96ce2209ae54ce30ba767fd3cf813d28eb01bfe05b2127ec4`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/E04_第四部分：机制反直觉与执行模板/video_small.mp4` | `6.0MB` | `4fd625e35356a13913a7502ab1913531c3454007c188acdd63000eb38fa89c6b`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/INDEX.md` | `5.1KB` | `a00b312b9d8b753c8f6be198b1c858ae8d72376c5f3b6729a779b5c48aa8e8f5`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/hard_thing_episode_manifest.json` | `8.0KB` | `88b7dd8f8a0aff9262118bf85d7096a4d965812f09f534052ba9aea309f6941e`
+- `resources/samples/hardthing_4part_bundle_20260225T123500/hardthing_offer_tiers.json` | `628.0B` | `57c1e7231d2d3a523aad4c0d56cc96c55f361de821ebb35ad2521214e20a510e`
+- `resources/samples/xhs/latest/xhs_kol_autojudge_20260224_201149.json` | `2.4KB` | `7a6feef8634dff4752261db59b5bd76c8b7db9013ff9af294642ef825c78f494`
+- `resources/samples/xhs/latest/xhs_kol_autojudge_20260224_201149.md` | `2.3KB` | `67e3ac326ec01000c89abb606c363edbc9c149c3ee5c86276095194f240a00a1`
+- `resources/samples/xhs/latest/xhs_kol_autojudge_20260225_180009.json` | `2.4KB` | `2b89e477d1e6b216d51ae80319d14b63bc9110ef86376a43764cc44352d7364e`
+- `resources/samples/xhs/latest/xhs_kol_autojudge_20260225_180009.md` | `2.3KB` | `d1d9d0592b8035952812c9798edef8d7db12d350191584cfafe7b1751d0428a0`
+- `resources/samples/xhs/latest/xhs_kol_watch_20260225_180009.json` | `36.4KB` | `52bd13fb7c5d56e74e89b5beab9135b9513b4f6be8f344666a3f4492513ca393`
+- `resources/samples/xhs/latest/xhs_kol_watch_20260225_180009.md` | `6.1KB` | `9c4e9df718b78cacbeedb0d80c4c43a1856532f494a31f1d2ebb2dd83b28ab1e`
+- `resources/samples/xhs/latest/xhs_kol_watch_20260225_180100.md` | `1017.0B` | `6855d0b7a562351f21be76f07983da41f6977c06abd6cee16c7549a5d809be48`
+- `resources/samples/xhs/latest/xhs_kol_watch_20260225_180118.json` | `6.6KB` | `1ea57adf86fbdaed15b489f5363ce00398be160964d7b799c55d2e61e1bfe416`
+- `resources/samples/xhs/latest/xhs_kol_watch_20260225_180118.md` | `2.5KB` | `105bb63156b12ce43ae7f6e3914b80f527d10cc542fde4a7116f36b3f934d108`
+- `resources/samples/xhs/latest/xhs_kol_watch_cache.json` | `6.6KB` | `1ea57adf86fbdaed15b489f5363ce00398be160964d7b799c55d2e61e1bfe416`
+- `scripts/env_check.py` | `3.2KB` | `877d7639bd3fb7ff855e568762cbf371f24300a11f25bc2e6c9897516a900214`
+- `scripts/export_results_index.py` | `2.8KB` | `897202504fb1a87923cda652a912cc6e1aefdcc51f5daf00799326846df97953`
+- `scripts/feishu_send_files.py` | `3.4KB` | `41b21eccf71e78d026e360147729a417b86d6f4fb83fd181deff91bbe74e5f96`
+- `scripts/notebooklm_manifest_builder.py` | `9.9KB` | `1597dc73b51c0e84bd91a33fd907f6e9c88d6f215eceb911d1df9de8843f9b02`
+- `scripts/notebooklm_series_runner.py` | `38.5KB` | `b25c72eb93aaba2f1d3d3c566a43e3398a2d0575b7e40463fd7f01b7080af660`
+- `scripts/notebooklm_video_fallback_ui.py` | `12.2KB` | `a724da9c2ca124c8e2b963d6314b3b52052378697046aa5b628deee2df182877`
+- `scripts/package_4part_bundle.py` | `3.4KB` | `d4c523e2dfc4560333c03c016aaa5c9aa168b503a5b30aaebcb45bbdd37e80b5`
+- `scripts/pipeline_orchestrator.py` | `9.2KB` | `b8d12f650ef7f8fbaa5be6766f4d9385cddd11981d06fa87ef1b5dc32f59d30b`
+- `scripts/xhs_ai.mjs` | `19.9KB` | `835bbcedec13da687b4592b9e47faf5c1208dfedd958b1d810a2b4cb6055cec7`
+- `scripts/xhs_edit.mjs` | `32.6KB` | `ca10a6a4fcb5384acbba608c9045c1a15952397a7ecaecd9580f2a075e3e6bf6`
+- `scripts/xhs_kol_autojudge_iterate.py` | `9.3KB` | `5b162a9145cf9ce43f81d99dc31a7e2758d36efb52304d68a6df4b81874f6b1d`
+- `scripts/xhs_kol_theme_watch.py` | `29.3KB` | `d296e1ee29b7e92274f02b285aadd91ad98e729fecce8fdbbb312b67a17414e7`
+- `state/hard_thing_episode_manifest.json` | `8.2KB` | `4fa878bfcc0b605b4fdd713a77ff6b0866e4d5d8d8da7534b2cb38bdb628b09c`
+- `state/hardthing_offer_tiers.json` | `628.0B` | `57c1e7231d2d3a523aad4c0d56cc96c55f361de821ebb35ad2521214e20a510e`

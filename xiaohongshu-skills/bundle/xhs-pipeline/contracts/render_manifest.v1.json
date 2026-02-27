@@ -1,0 +1,11 @@
+{
+  "width": 1080,
+  "height": 1440,
+  "card_count": 9,
+  "images": [
+    "cover.png",
+    "card_1.png",
+    "card_2.png"
+  ],
+  "generated_at": ""
+}

@@ -1,0 +1,13 @@
+.env.local
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+state/runtime/**
+!state/runtime/.gitkeep
+*.log
+*.tmp

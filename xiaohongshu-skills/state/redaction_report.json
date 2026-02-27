@@ -1,0 +1,70 @@
+{
+  "root": "/private/tmp/myskills-work/xiaohongshu-skills/bundle",
+  "generated_at": "2026-02-26T23:58:16.574437+00:00",
+  "change_count": 9,
+  "changes": [
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/vendor-skills/Auto-Redbook-Skills/README.md",
+      "kind": "text-redact",
+      "reason": "xhs_cookie_line",
+      "before_sha256": "1c274ec37c1a2d75b736f5986c2f8e2fc13465d07af8c0393e7d178b653be835",
+      "after_sha256": "5e335b28b0f73c849209b5085218149b7008e5d7b115a0df38763e16d87d06bf"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/vendor-skills/Auto-Redbook-Skills/SKILL.md",
+      "kind": "text-redact",
+      "reason": "xhs_cookie_line",
+      "before_sha256": "efae0ec471909c8e7d9877632d601c9fa0b0baf804205666630e2d653c073c4a",
+      "after_sha256": "c68857111517aa496432176494b402dcf9501d2a4d86c72622baf92b615b93c5"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/vendor-skills/Auto-Redbook-Skills/env.example.txt",
+      "kind": "text-redact",
+      "reason": "xhs_cookie_line",
+      "before_sha256": "9e164a81230d44b68a9c0a26280a7b299fd6e1967bcb1255576af3ed5ee6e1e2",
+      "after_sha256": "b04d95caddbd80283378eca4cc557b638b67af1ce91733610cc7d60787070579"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/vendor-skills/Auto-Redbook-Skills/scripts/publish_xhs.py",
+      "kind": "text-redact",
+      "reason": "xhs_cookie_line",
+      "before_sha256": "fe9dc28bc0849b633ba1345ec38f316c7b4b2aae237974870dfedf6050a7ece8",
+      "after_sha256": "f5d0bb9034e16f424c6a9d4b6a10c97fb8ec234d8e46ad503990883435d48730"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/products/hard-thing/source/The Hard Thing About Hard Things.epub",
+      "kind": "binary-placeholder",
+      "reason": "protected-binary-redacted",
+      "before_sha256": "aa42bd9c37e010c4de27d0315516a82824221f782e3e2c02cfdb89a333f5631d",
+      "after_sha256": "fa8bfaaf8dded4c56e3d48e1c868bdcab3d4772fc014f1928e05f5c1d3723cc2"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/tools/book-resource/repo.tar.gz",
+      "kind": "binary-placeholder",
+      "reason": "protected-binary-redacted",
+      "before_sha256": "f39d32a84eafdcd7f9599ba48394856d7c5ea153bff0b3780148b498d89736a1",
+      "after_sha256": "b3b76fec1e52a685d6f1e8371d5cd4cb1f85aed96279f02c5e326ff282214eb7"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/tools/book-resource-0d828b2/repo.tar.gz",
+      "kind": "binary-placeholder",
+      "reason": "protected-binary-redacted",
+      "before_sha256": "c05014c442ee8e3e5e4923daa403f54f171f5c190be6edde5205490044f82034",
+      "after_sha256": "825583a94481b229174247e908978b19b7cebd6e240f096d3ada7c7fdd596051"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/tools/mono-claw-xhs-private-src/resources/books/The Hard Thing About Hard Things.epub",
+      "kind": "binary-placeholder",
+      "reason": "protected-binary-redacted",
+      "before_sha256": "aa42bd9c37e010c4de27d0315516a82824221f782e3e2c02cfdb89a333f5631d",
+      "after_sha256": "3229287e88b9cdf67fc7d62224c12f3e52fd76925923453376755fe611221af5"
+    },
+    {
+      "path": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/tools/mono-claw-xhs-private-src/setting-api.sh",
+      "kind": "text-redact",
+      "reason": "github_pat,github_token_line",
+      "before_sha256": "41282109723631fe6caac68bc4922dc13d6ac73ae4f0734c146598d9a90b9173",
+      "after_sha256": "1ae83b42775b0d3e3e013cf78a05bec3bf62935f7cae931003d0a8161f6620a2"
+    }
+  ]
+}

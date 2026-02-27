@@ -1,0 +1,3 @@
+display_name: Mono Claw XHS
+short_description: XHS + HardThing production pipeline skill
+default_prompt: Run the mono-claw-xhs pipeline stage-by-stage from check-env to delivery.

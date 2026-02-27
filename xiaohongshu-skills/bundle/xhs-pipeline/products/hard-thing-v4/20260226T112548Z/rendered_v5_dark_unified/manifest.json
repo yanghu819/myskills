@@ -1,0 +1,33 @@
+{
+  "source_markdown": "/Users/hy3/Desktop/setting/xhs-pipeline/products/hard-thing-v4/20260226T112548Z/.xhs_render_body_XXXXXX.md",
+  "output_dir": "/Users/hy3/Desktop/setting/xhs-pipeline/products/hard-thing-v4/20260226T112548Z/rendered_v5_dark_unified",
+  "card_size": {
+    "width": 1080,
+    "height": 1440
+  },
+  "count": 10,
+  "cards": [
+    "01-card.png",
+    "02-card.png",
+    "03-card.png",
+    "04-card.png",
+    "05-card.png",
+    "06-card.png",
+    "07-card.png",
+    "08-card.png",
+    "09-card.png",
+    "10-card.png"
+  ],
+  "missing_images": [],
+  "cover": {
+    "enabled": true,
+    "title": "创业维艰｜10张决策卡",
+    "subtitle": "困难时刻，不找标准答案，只选可承受解。",
+    "author": "",
+    "image_src": ""
+  },
+  "signature_text": "-- Hy3",
+  "publish": {
+    "requested": false
+  }
+}

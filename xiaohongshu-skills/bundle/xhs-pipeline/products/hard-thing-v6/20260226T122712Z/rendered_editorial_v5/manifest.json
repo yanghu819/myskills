@@ -1,0 +1,25 @@
+{
+  "source_markdown": "/Users/hy3/Desktop/setting/xhs-pipeline/products/hard-thing-v6/20260226T122712Z/xhs_post.v6.editorial.md",
+  "output_dir": "/Users/hy3/Desktop/setting/xhs-pipeline/products/hard-thing-v6/20260226T122712Z/rendered_editorial_v5",
+  "card_size": {
+    "width": 1080,
+    "height": 1440
+  },
+  "count": 10,
+  "cards": [
+    "01-card.png",
+    "02-card.png",
+    "03-card.png",
+    "04-card.png",
+    "05-card.png",
+    "06-card.png",
+    "07-card.png",
+    "08-card.png",
+    "09-card.png",
+    "10-card.png"
+  ],
+  "missing_images": [],
+  "publish": {
+    "requested": false
+  }
+}

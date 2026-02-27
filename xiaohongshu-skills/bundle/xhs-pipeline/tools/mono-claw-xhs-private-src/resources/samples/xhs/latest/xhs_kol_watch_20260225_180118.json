@@ -1,0 +1,301 @@
+{
+  "run_id": "20260225_180118",
+  "notes_count": 7,
+  "days": 45,
+  "source_distribution": {
+    "bilibili": 7
+  },
+  "source_warnings": [
+    "XHS MCP 未启动，已跳过实时 XHS。"
+  ],
+  "top_creators": [
+    {
+      "creator_key": "bilibili:1933453860",
+      "nickname": "D溜肉段",
+      "user_id": "1933453860",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 22,
+      "total_collects": 91,
+      "total_comments": 1,
+      "total_plays": 724,
+      "total_score": 219.98,
+      "sample_titles": [
+        "如何提升游戏玩家满足感：VFX_Reward基础2D动效"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116104038981624"
+      ],
+      "last_publish_ts": 1771635600,
+      "rank_score": 153.99,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 219.98,
+      "last_publish_date": "2026-02-21",
+      "profile": "https://space.bilibili.com/1933453860"
+    },
+    {
+      "creator_key": "bilibili:695558756",
+      "nickname": "拒绝加班的程序猿",
+      "user_id": "695558756",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 22,
+      "total_collects": 73,
+      "total_comments": 2,
+      "total_plays": 782,
+      "total_score": 186.64,
+      "sample_titles": [
+        "【我付费你白嫖】12小时快速掌握Linux入门到实战视频教程！（Linux安装/Linux部署/Linux教程/Linux入门）"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116050335178647"
+      ],
+      "last_publish_ts": 1771753500,
+      "rank_score": 130.65,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 186.64,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/695558756"
+    },
+    {
+      "creator_key": "bilibili:571526253",
+      "nickname": "安卓教育医学考试",
+      "user_id": "571526253",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 3,
+      "total_likes": 1,
+      "total_collects": 0,
+      "total_comments": 18,
+      "total_plays": 151,
+      "total_score": 31.019999999999996,
+      "sample_titles": [
+        "针灸学必考知识点080：足阳明胃经-内庭   #中医执业医师考试 #中医助理医师考试 #中医实践技能 #中医 #中西医 #针灸学",
+        "针灸学必考知识点079：足阳明胃经-解溪   #中医执业医师考试 #中医助理医师考试 #中医实践技能 #中医 #中西医 #针灸学",
+        "针灸学必考知识点078：足阳明胃经-丰隆   #中医执业医师考试 #中医助理医师考试 #中医实践技能 #中医 #中西医 #针灸学"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116041241858237",
+        "http://www.bilibili.com/video/av116041208307609",
+        "http://www.bilibili.com/video/av116041191528188"
+      ],
+      "last_publish_ts": 1771752600,
+      "rank_score": 38.46,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 10.34,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/571526253"
+    },
+    {
+      "creator_key": "bilibili:242872016",
+      "nickname": "嵌入式小林",
+      "user_id": "242872016",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 5,
+      "total_collects": 13,
+      "total_comments": 2,
+      "total_plays": 749,
+      "total_score": 48.980000000000004,
+      "sample_titles": [
+        "【硬件小白看过来】未来硬件大师计划：从零到一的硬件工程师课程教学"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116096086638619"
+      ],
+      "last_publish_ts": 1771498800,
+      "rank_score": 34.29,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "产品设计"
+      ],
+      "avg_score": 48.98,
+      "last_publish_date": "2026-02-19",
+      "profile": "https://space.bilibili.com/242872016"
+    },
+    {
+      "creator_key": "bilibili:499673062",
+      "nickname": "教写字的萤火虫",
+      "user_id": "499673062",
+      "platforms": [
+        "bilibili"
+      ],
+      "notes": 1,
+      "total_likes": 1,
+      "total_collects": 2,
+      "total_comments": 0,
+      "total_plays": 123,
+      "total_score": 7.46,
+      "sample_titles": [
+        "雨字头太窄？皿字底太胖？看看你的作业踩了几个雷｜部首精批"
+      ],
+      "urls": [
+        "http://www.bilibili.com/video/av116108971480501"
+      ],
+      "last_publish_ts": 1771720200,
+      "rank_score": 5.22,
+      "primary_platform": "bilibili",
+      "top_themes": [
+        "内容生产"
+      ],
+      "avg_score": 7.46,
+      "last_publish_date": "2026-02-22",
+      "profile": "https://space.bilibili.com/499673062"
+    }
+  ],
+  "top_themes": [
+    [
+      "内容生产",
+      6
+    ],
+    [
+      "产品设计",
+      1
+    ]
+  ],
+  "top_tokens": [
+    [
+      "知识付费",
+      7
+    ],
+    [
+      "针灸学必考知识点",
+      3
+    ],
+    [
+      "足阳明胃经",
+      3
+    ],
+    [
+      "中医执业医师考试",
+      3
+    ],
+    [
+      "中医助理医师考试",
+      3
+    ],
+    [
+      "中医实践技能",
+      3
+    ],
+    [
+      "中医",
+      3
+    ],
+    [
+      "中西医",
+      3
+    ],
+    [
+      "针灸学",
+      3
+    ],
+    [
+      "我付费你白嫖",
+      1
+    ],
+    [
+      "小时快速掌握Linu",
+      1
+    ],
+    [
+      "x入门到实战视频教程",
+      1
+    ],
+    [
+      "Linux安装",
+      1
+    ],
+    [
+      "Linux部署",
+      1
+    ],
+    [
+      "Linux教程",
+      1
+    ],
+    [
+      "Linux入门",
+      1
+    ],
+    [
+      "内庭",
+      1
+    ],
+    [
+      "雨字头太窄",
+      1
+    ],
+    [
+      "皿字底太胖",
+      1
+    ],
+    [
+      "看看你的作业踩了几个",
+      1
+    ],
+    [
+      "部首精批",
+      1
+    ],
+    [
+      "解溪",
+      1
+    ],
+    [
+      "如何提升游戏玩家满足",
+      1
+    ],
+    [
+      "VFX",
+      1
+    ],
+    [
+      "Reward基础",
+      1
+    ],
+    [
+      "D动效",
+      1
+    ],
+    [
+      "丰隆",
+      1
+    ],
+    [
+      "硬件小白看过来",
+      1
+    ],
+    [
+      "未来硬件大师计划",
+      1
+    ],
+    [
+      "从零到一的硬件工程师",
+      1
+    ]
+  ],
+  "actions": [
+    "做《30秒口播模板》：一键改行业词，批量产出。",
+    "做《9.9到1999产品梯度》：样品课-小课-训练营闭环。",
+    "做《周度收入复盘》栏目：公开投入、产出和调整。",
+    "做《反例拆解》：讲清为什么这条内容不赚钱。"
+  ],
+  "generated_at": "2026-02-25T18:02:07.782840"
+}

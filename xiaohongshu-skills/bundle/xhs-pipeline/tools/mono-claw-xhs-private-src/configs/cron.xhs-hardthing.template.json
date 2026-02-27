@@ -1,0 +1,22 @@
+{
+  "jobs": [
+    {
+      "name": "xhs-kol-autojudge-daily-18",
+      "enabled": true,
+      "schedule": { "kind": "cron", "expr": "0 18 * * *", "tz": "Asia/Shanghai" },
+      "payload": {
+        "kind": "exec",
+        "command": "python3 scripts/pipeline_orchestrator.py --stage xhs-judge --top-n 30"
+      }
+    },
+    {
+      "name": "notebooklm-hardthing-series-daily-18",
+      "enabled": true,
+      "schedule": { "kind": "cron", "expr": "0 18 * * *", "tz": "Asia/Shanghai" },
+      "payload": {
+        "kind": "exec",
+        "command": "python3 scripts/pipeline_orchestrator.py --stage hardthing-next --mode next --send-media true"
+      }
+    }
+  ]
+}
