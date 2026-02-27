@@ -85,6 +85,7 @@ import sys
 import urllib.error
 import urllib.request
 from pathlib import Path
+from typing import Optional
 
 owner = "$REPO_OWNER"
 repo = "$REPO"
@@ -95,7 +96,7 @@ if not token:
 
 root = Path("$ROOT")
 
-def req(method: str, url: str, data: dict | None = None):
+def req(method: str, url: str, data: Optional[dict] = None):
     payload = None
     headers = {
         "Authorization": f"Bearer {token}",
