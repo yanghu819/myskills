@@ -169,7 +169,7 @@ python scripts/publish_xhs.py --title "笔记标题" --desc "笔记描述" --ima
 
 1. 需配置小红书 Cookie：
 ```
-XHS_COOKIE=REDACTED
+XHS_COOKIE=<REDACTED>
 ```
 
 2. Cookie 获取方式：

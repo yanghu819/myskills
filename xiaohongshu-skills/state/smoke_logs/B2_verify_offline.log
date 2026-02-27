@@ -1,0 +1,108 @@
+{
+  "repo_root": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline",
+  "python": "3.9.6",
+  "checks": [
+    {
+      "name": "cmd:python3",
+      "ok": true,
+      "value": "/usr/bin/python3",
+      "level": "error"
+    },
+    {
+      "name": "cmd:git",
+      "ok": true,
+      "value": "/usr/bin/git",
+      "level": "error"
+    },
+    {
+      "name": "cmd:node",
+      "ok": true,
+      "value": "/Users/hy3/.local/node-v22.22.0-darwin-arm64/bin/node",
+      "level": "warn"
+    },
+    {
+      "name": "cmd:pnpm",
+      "ok": false,
+      "value": "missing",
+      "level": "warn"
+    },
+    {
+      "name": "cmd:npm",
+      "ok": true,
+      "value": "/Users/hy3/.local/node-v22.22.0-darwin-arm64/bin/npm",
+      "level": "warn"
+    },
+    {
+      "name": "file:book_outline.v1.json",
+      "ok": true,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/contracts/book_outline.v1.json",
+      "level": "error"
+    },
+    {
+      "name": "file:xhs_post.v1.md",
+      "ok": true,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/contracts/xhs_post.v1.md",
+      "level": "error"
+    },
+    {
+      "name": "file:render_manifest.v1.json",
+      "ok": true,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/contracts/render_manifest.v1.json",
+      "level": "error"
+    },
+    {
+      "name": "file:outline_to_xhs_md.py",
+      "ok": true,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts/outline_to_xhs_md.py",
+      "level": "error"
+    },
+    {
+      "name": "file:render_xhs_cards.sh",
+      "ok": true,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts/render_xhs_cards.sh",
+      "level": "error"
+    },
+    {
+      "name": "recommended:package.json",
+      "ok": false,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/tools/ebook-to-mindmap/package.json",
+      "level": "warn"
+    },
+    {
+      "name": "recommended:SKILL.md",
+      "ok": false,
+      "value": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/tools/erafat-skills/md-to-xhs-cards/SKILL.md",
+      "level": "warn"
+    },
+    {
+      "name": "recommended:run_md_to_xhs_cards.sh",
+      "ok": true,
+      "value": "/Users/hy3/.codex/skills/md-to-xhs-cards/scripts/run_md_to_xhs_cards.sh",
+      "level": "warn"
+    }
+  ],
+  "errors": 0,
+  "warnings": 3,
+  "status": "ok"
+}
+STAGE=check-env
+STATUS=ok
+OUTPUT_PATH=/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline
+NEXT_ACTION=run setup-tools or run-pipeline
+test_generate_assets (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok
+test_invalid_outline_fails (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok
+test_fails_when_no_png (test_build_render_manifest.BuildRenderManifestTests) ... ok
+test_manifest_generation_and_order (test_build_render_manifest.BuildRenderManifestTests) ... ok
+test_generate_8_cards_markdown (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok
+test_invalid_outline_fails (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok
+test_generate_10_cards_markdown (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok
+test_missing_asset_fails (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.474s
+
+OK
+Validation passed: /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/examples/sample_book_outline.v1.json
+Wrote markdown: /private/tmp/xhs_post.verify.v1.md
+Pipeline finished.
+OFFLINE_STATUS=ok

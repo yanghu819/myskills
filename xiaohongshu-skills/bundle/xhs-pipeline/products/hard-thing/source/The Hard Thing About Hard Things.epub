@@ -1,7 +1,6 @@
-REPLACED_BINARY_PLACEHOLDER
-original_path=/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/products/hard-thing/source/The Hard Thing About Hard Things.epub
-original_size_bytes=327577
-original_sha256=aa42bd9c37e010c4de27d0315516a82824221f782e3e2c02cfdb89a333f5631d
-replaced_at=2026-02-26T23:58:16.534013+00:00
-reason=protected-binary-redacted-for-backup
-restore=use local private copy outside this repository
+[REDACTED PLACEHOLDER]
+original_file: The Hard Thing About Hard Things.epub
+original_size: 327577
+replaced_at_utc: 2026-02-27T03:57:14.311941+00:00
+reason: copyright_or_sensitive_binary
+restore_hint: Recover original file from local private source before running full pipeline.

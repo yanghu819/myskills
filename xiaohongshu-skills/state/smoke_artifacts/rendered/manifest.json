@@ -1,0 +1,33 @@
+{
+  "source_markdown": "/Users/hy3/Desktop/setting/xiaohongshu-skills/state/smoke_artifacts/.xhs_render_body_XXXXXX.md",
+  "output_dir": "/Users/hy3/Desktop/setting/xiaohongshu-skills/state/smoke_artifacts/rendered",
+  "card_size": {
+    "width": 1080,
+    "height": 1440
+  },
+  "count": 10,
+  "cards": [
+    "01-card.png",
+    "02-card.png",
+    "03-card.png",
+    "04-card.png",
+    "05-card.png",
+    "06-card.png",
+    "07-card.png",
+    "08-card.png",
+    "09-card.png",
+    "10-card.png"
+  ],
+  "missing_images": [],
+  "cover": {
+    "enabled": false,
+    "title": "",
+    "subtitle": "",
+    "author": "",
+    "image_src": ""
+  },
+  "signature_text": "",
+  "publish": {
+    "requested": false
+  }
+}

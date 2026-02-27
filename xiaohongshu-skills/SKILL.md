@@ -1,70 +1,49 @@
 ---
 name: xiaohongshu-skills
-description: Universal Xiaohongshu pipeline skill for Codex and Claude Code. Covers EPUB/PDF decomposition, structured outline generation, markdown-to-card rendering, style iteration, dry-run publish checks, smoke tests, and repo backup.
+description: "Universal local-first pipeline for Xiaohongshu content production and backup across book extraction, markdown structuring, 3:4 carousel rendering, publish dry-run, and repository backup. Use when user asks to create, update, or run a reusable XHS skill bundle for Codex and Claude Code."
 ---
 
 # xiaohongshu-skills
 
-## When to use
-- You want one reusable local-first workflow for:
-  - `EPUB/PDF -> structured outline -> markdown -> XHS 3:4 cards`
-- You need repeatable smoke tests before delivery or backup.
-- You need cross-agent usage in both Codex and Claude Code.
+## Scope
 
-## Compatible environments
-- Codex: place under `~/.codex/skills/xiaohongshu-skills/`
-- Claude Code: place under `~/.claude/skills/xiaohongshu-skills/`
-- All commands below are plain CLI and shared between both.
+This skill packages an offline-first Xiaohongshu workflow into a portable bundle that works in both Codex and Claude Code.
 
-## Fixed workflow
-1. Package snapshot
-2. Redact sensitive values and protected binaries
-3. Run full smoke tests
-4. Backup via git
-5. Verify key files by GitHub Contents API
+Workflow:
+1. Snapshot source pipeline and vendor skills
+2. Redact secrets and replace risky binaries with placeholders
+3. Run smoke tests (syntax, unit tests, offline verify, render, publish dry-run)
+4. Backup via Git
+5. Verify key files via GitHub Contents API hash comparison
 
-## Quick start
+## Required Inputs
+
+- Source pipeline path (default: `/Users/hy3/Desktop/setting/xhs-pipeline`)
+- Bundle destination path (default: `./bundle/xhs-pipeline`)
+- GitHub repo owner/repo for backup
+- `GITHUB_TOKEN` exported for backup/API verify
+
+## Standard Commands
 
 ```bash
-cd xiaohongshu-skills
-
-bash scripts/package_snapshot.sh \
-  --source /Users/hy3/Desktop/setting/xhs-pipeline \
-  --dest ./bundle/xhs-pipeline \
-  --vendor-source ~/.codex/skills \
-  --vendor-dest ./bundle/vendor-skills
-
-python3 scripts/redact_snapshot.py \
-  --root ./bundle \
-  --report ./state/redaction_report.json
-
-bash scripts/smoke_all.sh --mode full --publish-dry-run --report ./state/smoke_report.json
-
-bash scripts/backup_git.sh \
-  --repo-owner yanghu819 \
-  --repo myskills \
-  --branch main \
-  --report ./state/backup_report.json
-
-python3 scripts/verify_github_api.py \
-  --repo-owner yanghu819 \
-  --repo myskills \
-  --ref main \
-  --checklist ./state/api_checklist.json \
-  --report ./state/api_verify_report.json
+scripts/package_snapshot.sh --source /abs/xhs-pipeline --dest ./bundle/xhs-pipeline
+scripts/redact_snapshot.py --root ./bundle --report ./state/redaction_report.json
+scripts/smoke_all.sh --mode full --publish-dry-run
+scripts/backup_git.sh --repo-owner <owner> --repo <repo> --branch codex/xiaohongshu-skills-YYYYMMDD
+scripts/verify_github_api.py --repo-owner <owner> --repo <repo> --ref main --checklist ./state/api_checklist.json
 ```
 
-## Core scripts
-- `scripts/package_snapshot.sh`: full mirror copy of local pipeline and vendor skills.
-- `scripts/redact_snapshot.py`: redact tokens/cookies and replace `.epub` / `.tar.gz` with placeholders.
-- `scripts/smoke_all.sh`: syntax checks, tests, offline verify, 10-card render, publish dry-run.
-- `scripts/backup_git.sh`: add/commit/push and record backup report.
-- `scripts/verify_github_api.py`: compare local vs remote key files by decoded content hash.
+## Outputs
 
-## Required env vars
-- `GITHUB_TOKEN`: required for GitHub API verification and optional for authenticated push.
-- `XHS_COOKIE`: optional for publish dry-run check (if dry-run path needs cookie validation).
+- `state/redaction_report.json`
+- `state/smoke_report.json`
+- `state/backup_report.json`
+- `state/api_verify_report.json`
 
 ## Notes
-- This skill intentionally preserves path structure while replacing sensitive/protected content.
-- The redaction report is mandatory output and should be reviewed before publishing.
+
+- Redaction is mandatory before backup.
+- Publish stage only uses `--dry-run` in smoke mode.
+- Keep `SKILL.md` and `CLAUDE.md` command contracts identical.
+- Read references only when needed:
+  - `references/title_2026_playbook.md`: 2026 title/copy strategy and compliance-safe hooks.

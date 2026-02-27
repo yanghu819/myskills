@@ -1,132 +1,82 @@
 {
+  "generated_at": "2026-02-27T03:57:16.847585+00:00",
   "mode": "full",
   "publish_dry_run": true,
-  "started_at": "2026-02-27T00:30:00Z",
-  "ended_at": "2026-02-27T00:30:02Z",
-  "bundle_pipeline": "/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline",
-  "tmp_dir": "/private/tmp/xhs_skill_smoke_73226",
-  "steps": [
+  "summary": {
+    "total_stages": 10,
+    "failed_stages": 0,
+    "status": "passed"
+  },
+  "stages": [
     {
-      "step": "build_assets",
+      "stage": "A1_py_compile",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/build_assets.log",
-      "tail": [
-        "Wrote compact editorial assets: /private/tmp/xhs_skill_smoke_73226/assets"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/A1_py_compile.log",
+      "command": "bash -lc python3\\ -m\\ py_compile\\ \\$\\(find\\ \\\"/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/scripts\\\"\\ \\\"/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts\\\"\\ -type\\ f\\ -name\\ \\'\\*.py\\'\\ -print\\) "
     },
     {
-      "step": "build_md_v2",
+      "stage": "A2_sh_syntax",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/build_md_v2.log",
-      "tail": [
-        "Wrote markdown: /private/tmp/xhs_skill_smoke_73226/smoke_v2.md"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/A2_sh_syntax.log",
+      "command": "bash -lc find\\ \\\"/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/scripts\\\"\\ \\\"/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts\\\"\\ -type\\ f\\ -name\\ \\'\\*.sh\\'\\ -print0\\ \\|\\ xargs\\ -0\\ -n1\\ zsh\\ -n "
     },
     {
-      "step": "offline_verify",
+      "stage": "A3_skill_validate",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/offline_verify.log",
-      "tail": [
-        "STATUS=ok",
-        "OUTPUT_PATH=/private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline",
-        "NEXT_ACTION=run setup-tools or run-pipeline",
-        "test_generate_assets (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok",
-        "test_invalid_outline_fails (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok",
-        "test_fails_when_no_png (test_build_render_manifest.BuildRenderManifestTests) ... ok",
-        "test_manifest_generation_and_order (test_build_render_manifest.BuildRenderManifestTests) ... ok",
-        "test_generate_8_cards_markdown (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok",
-        "test_invalid_outline_fails (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok",
-        "test_generate_10_cards_markdown (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok",
-        "test_missing_asset_fails (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok",
-        "",
-        "----------------------------------------------------------------------",
-        "Ran 8 tests in 0.449s",
-        "",
-        "OK",
-        "Validation passed: /private/tmp/myskills-work/xiaohongshu-skills/bundle/xhs-pipeline/examples/sample_book_outline.v1.json",
-        "Wrote markdown: /private/tmp/xhs_post.verify.v1.md",
-        "Pipeline finished.",
-        "OFFLINE_STATUS=ok"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/A3_skill_validate.log",
+      "command": "python3 /Users/hy3/.codex/skills/.system/skill-creator/scripts/quick_validate.py /private/tmp/myskills-repo-20260227c/xiaohongshu-skills "
     },
     {
-      "step": "publish_dry_run",
+      "stage": "B1_unittest",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/publish_dry_run.log",
-      "tail": [
-        "Dry run passed.",
-        "Title: smoke-dry-run",
-        "Images: 10",
-        "Private: True",
-        "API mode: False"
-      ]
+      "duration_sec": 1,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/B1_unittest.log",
+      "command": "python3 -m unittest discover -s /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/tests -v "
     },
     {
-      "step": "py_compile",
+      "stage": "B2_verify_offline",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/py_compile.log",
-      "tail": []
+      "duration_sec": 1,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/B2_verify_offline.log",
+      "command": "bash /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts/verify_offline.sh "
     },
     {
-      "step": "render_10",
+      "stage": "C1_build_assets",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/render_10.log",
-      "tail": [
-        "Rendered 10 card(s) to: /private/tmp/xhs_skill_smoke_73226/smoke_rendered",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/01-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/02-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/03-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/04-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/05-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/06-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/07-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/08-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/09-card.png",
-        "- /private/tmp/xhs_skill_smoke_73226/smoke_rendered/10-card.png"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/C1_build_assets.log",
+      "command": "python3 /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts/build_evidence_assets_editorial_compact.py --input /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/products/hard-thing/book_outline.v1.json --output-dir /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/assets "
     },
     {
-      "step": "sh_syntax",
+      "stage": "C2_build_md_v2",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/sh_syntax.log",
-      "tail": []
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/C2_build_md_v2.log",
+      "command": "python3 /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts/outline_to_xhs_md_v2.py --input /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/products/hard-thing/book_outline.v1.json --output /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/xhs_post.v2.md --author hy3 --target-cards 10 --style-preset convert_light_v1 --asset-dir /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/assets "
     },
     {
-      "step": "skill_validate",
+      "stage": "C3_render_10_cards",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/skill_validate.log",
-      "tail": [
-        "Skill is valid!"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/C3_render_10_cards.log",
+      "command": "bash /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/xhs-pipeline/scripts/render_xhs_cards.sh /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/xhs_post.v2.md --output-dir /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered --width 1080 --height 1440 "
     },
     {
-      "step": "unit_tests",
+      "stage": "C4_render_assert",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/unit_tests.log",
-      "tail": [
-        "test_generate_assets (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok",
-        "test_invalid_outline_fails (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok",
-        "test_fails_when_no_png (test_build_render_manifest.BuildRenderManifestTests) ... ok",
-        "test_manifest_generation_and_order (test_build_render_manifest.BuildRenderManifestTests) ... ok",
-        "test_generate_8_cards_markdown (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok",
-        "test_invalid_outline_fails (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok",
-        "test_generate_10_cards_markdown (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok",
-        "test_missing_asset_fails (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok",
-        "",
-        "----------------------------------------------------------------------",
-        "Ran 8 tests in 0.451s",
-        "",
-        "OK"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/C4_render_assert.log",
+      "command": "python3 - /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered "
     },
     {
-      "step": "verify_manifest",
+      "stage": "D1_publish_dry_run",
       "exit_code": 0,
-      "log_path": "/private/tmp/xhs_skill_smoke_73226/verify_manifest.log",
-      "tail": [
-        "manifest ok"
-      ]
+      "duration_sec": 0,
+      "log_file": "/private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_logs/D1_publish_dry_run.log",
+      "command": "python3 /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/bundle/vendor-skills/md-to-xhs-cards/scripts/publish_xhs.py --manifest /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/manifest.json --cookie a1=dryrun\\;\\ web_session=dryrun --private --dry-run "
     }
-  ],
-  "status": "ok"
+  ]
 }

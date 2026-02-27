@@ -1,36 +1,12 @@
 {
   "files": [
-    {
-      "local": "./SKILL.md",
-      "remote": "xiaohongshu-skills/SKILL.md"
-    },
-    {
-      "local": "./CLAUDE.md",
-      "remote": "xiaohongshu-skills/CLAUDE.md"
-    },
-    {
-      "local": "./scripts/smoke_all.sh",
-      "remote": "xiaohongshu-skills/scripts/smoke_all.sh"
-    },
-    {
-      "local": "./scripts/redact_snapshot.py",
-      "remote": "xiaohongshu-skills/scripts/redact_snapshot.py"
-    },
-    {
-      "local": "./scripts/backup_git.sh",
-      "remote": "xiaohongshu-skills/scripts/backup_git.sh"
-    },
-    {
-      "local": "./scripts/verify_github_api.py",
-      "remote": "xiaohongshu-skills/scripts/verify_github_api.py"
-    },
-    {
-      "local": "./state/smoke_report.json",
-      "remote": "xiaohongshu-skills/state/smoke_report.json"
-    },
-    {
-      "local": "./state/redaction_report.json",
-      "remote": "xiaohongshu-skills/state/redaction_report.json"
-    }
+    "xiaohongshu-skills/SKILL.md",
+    "xiaohongshu-skills/CLAUDE.md",
+    "xiaohongshu-skills/scripts/smoke_all.sh",
+    "xiaohongshu-skills/scripts/redact_snapshot.py",
+    "xiaohongshu-skills/scripts/backup_git.sh",
+    "xiaohongshu-skills/scripts/verify_github_api.py",
+    "xiaohongshu-skills/state/smoke_report.json",
+    "xiaohongshu-skills/state/redaction_report.json"
   ]
 }

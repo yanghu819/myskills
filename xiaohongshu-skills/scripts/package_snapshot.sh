@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SKILL_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 SOURCE=""
 DEST=""
-VENDOR_SOURCE=""
-VENDOR_DEST=""
+VENDOR_DEST="${SKILL_ROOT}/bundle/vendor-skills"
+SKILLS_HOME="${CODEX_HOME:-${HOME}/.codex}/skills"
+
+usage() {
+  cat <<USAGE
+Usage: $0 --source /abs/xhs-pipeline --dest ./bundle/xhs-pipeline [--vendor-dest ./bundle/vendor-skills] [--skills-home ~/.codex/skills]
+USAGE
+}
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -16,46 +25,65 @@ while [[ $# -gt 0 ]]; do
       DEST="$2"
       shift 2
       ;;
-    --vendor-source)
-      VENDOR_SOURCE="$2"
-      shift 2
-      ;;
     --vendor-dest)
       VENDOR_DEST="$2"
       shift 2
       ;;
+    --skills-home)
+      SKILLS_HOME="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
     *)
-      echo "Unknown arg: $1" >&2
-      exit 2
+      echo "Unknown argument: $1" >&2
+      usage
+      exit 1
       ;;
   esac
 done
 
-if [[ -z "$SOURCE" || -z "$DEST" || -z "$VENDOR_SOURCE" || -z "$VENDOR_DEST" ]]; then
-  echo "Usage: $0 --source <xhs-pipeline> --dest <bundle/xhs-pipeline> --vendor-source <skills-dir> --vendor-dest <bundle/vendor-skills>" >&2
-  exit 2
+if [[ -z "$SOURCE" || -z "$DEST" ]]; then
+  usage
+  exit 1
 fi
 
 SOURCE="$(cd "$(dirname "$SOURCE")" && pwd)/$(basename "$SOURCE")"
-DEST="$(cd "$(dirname "$DEST")" && pwd)/$(basename "$DEST")"
-VENDOR_SOURCE="$(cd "$(dirname "$VENDOR_SOURCE")" && pwd)/$(basename "$VENDOR_SOURCE")"
-VENDOR_DEST="$(cd "$(dirname "$VENDOR_DEST")" && pwd)/$(basename "$VENDOR_DEST")"
-
 if [[ ! -d "$SOURCE" ]]; then
-  echo "Source not found: $SOURCE" >&2
+  echo "Source directory not found: $SOURCE" >&2
   exit 1
 fi
-if [[ ! -d "$VENDOR_SOURCE" ]]; then
-  echo "Vendor source not found: $VENDOR_SOURCE" >&2
+
+if [[ "$DEST" != /* ]]; then
+  DEST="${SKILL_ROOT}/${DEST}"
+fi
+if [[ "$VENDOR_DEST" != /* ]]; then
+  VENDOR_DEST="${SKILL_ROOT}/${VENDOR_DEST}"
+fi
+if [[ "$SKILLS_HOME" != /* ]]; then
+  SKILLS_HOME="$(cd "$(dirname "$SKILLS_HOME")" && pwd)/$(basename "$SKILLS_HOME")"
+fi
+
+if [[ ! -d "$SKILLS_HOME" ]]; then
+  echo "Skills home not found: $SKILLS_HOME" >&2
   exit 1
 fi
 
 mkdir -p "$DEST" "$VENDOR_DEST"
 
-rsync -a --delete --exclude '.git' "$SOURCE/" "$DEST/"
-rsync -a --delete --exclude '.git' "$VENDOR_SOURCE/" "$VENDOR_DEST/"
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a --delete "$SOURCE/" "$DEST/"
+  rsync -a --delete "$SKILLS_HOME/" "$VENDOR_DEST/"
+else
+  mkdir -p "$DEST" "$VENDOR_DEST"
+  cp -a "$SOURCE/." "$DEST/"
+  cp -a "$SKILLS_HOME/." "$VENDOR_DEST/"
+fi
 
-echo "PACKAGED_SOURCE=$SOURCE"
-echo "PACKAGED_DEST=$DEST"
-echo "PACKAGED_VENDOR_SOURCE=$VENDOR_SOURCE"
-echo "PACKAGED_VENDOR_DEST=$VENDOR_DEST"
+echo "Snapshot complete."
+echo "Pipeline source: $SOURCE"
+echo "Pipeline bundle: $DEST"
+echo "Vendor skills source: $SKILLS_HOME"
+echo "Vendor skills bundle: $VENDOR_DEST"

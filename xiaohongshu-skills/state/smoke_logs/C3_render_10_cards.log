@@ -1,0 +1,18 @@
+Rendering cards...
+Rendered 10 card(s) to: /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/01-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/02-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/03-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/04-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/05-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/06-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/07-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/08-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/09-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/10-card.png
+- /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/manifest.json
+Building render_manifest.v1.json...
+Wrote manifest: /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered/render_manifest.v1.json
+
+Render complete.
+Output directory: /private/tmp/myskills-repo-20260227c/xiaohongshu-skills/state/smoke_artifacts/20260227T035714Z/rendered

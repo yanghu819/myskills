@@ -8,7 +8,7 @@ set -euo pipefail
 #   bash ./setting-api.sh --write-env
 
 export REPO_OWNER="yanghu819"
-export GITHUB_TOKEN="ghp_REDACTED"
+export GITHUB_TOKEN="<GITHUB_TOKEN_REDACTED>"
 
 export FEISHU_APP_ID="cli_a9f5987c4ef89cef"
 export FEISHU_APP_SECRET="eDMibFRltnHhu1R0BhSopggwfwF7wuVH"
@@ -30,7 +30,7 @@ export CHROME_PATH="${CHROME_PATH:-/Applications/Google Chrome.app/Contents/MacO
 if [[ "${1:-}" == "--write-env" ]]; then
   cat > .env.local <<EOF
 REPO_OWNER=$REPO_OWNER
-GITHUB_TOKEN=REDACTED
+GITHUB_TOKEN=<REDACTED>
 FEISHU_APP_ID=$FEISHU_APP_ID
 FEISHU_APP_SECRET=$FEISHU_APP_SECRET
 FEISHU_TARGET_OPEN_ID=$FEISHU_TARGET_OPEN_ID

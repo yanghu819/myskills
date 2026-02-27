@@ -1,0 +1,13 @@
+test_generate_assets (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok
+test_invalid_outline_fails (test_build_evidence_assets.BuildEvidenceAssetsTests) ... ok
+test_fails_when_no_png (test_build_render_manifest.BuildRenderManifestTests) ... ok
+test_manifest_generation_and_order (test_build_render_manifest.BuildRenderManifestTests) ... ok
+test_generate_8_cards_markdown (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok
+test_invalid_outline_fails (test_outline_to_xhs_md.OutlineToMarkdownTests) ... ok
+test_generate_10_cards_markdown (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok
+test_missing_asset_fails (test_outline_to_xhs_md_v2.OutlineToMarkdownV2Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.514s
+
+OK

@@ -128,7 +128,7 @@ cp env.example.txt .env
 编辑 `.env`：
 
 ```env
-XHS_COOKIE=REDACTED
+XHS_COOKIE=<REDACTED>
 ```
 
 > 获取方式：浏览器登录小红书 → F12 → Network → 任意请求的 Cookie 头，复制整串。

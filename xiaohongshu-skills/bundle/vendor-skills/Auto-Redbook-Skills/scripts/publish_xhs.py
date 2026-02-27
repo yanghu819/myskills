@@ -14,7 +14,7 @@
     在同目录或项目根目录下创建 .env 文件，配置：
     
     # 必需：小红书 Cookie
-    XHS_COOKIE=REDACTED
+    XHS_COOKIE=<REDACTED>
     
     # 可选：API 服务地址（使用 --api-mode 时需要）
     XHS_API_URL=http://localhost:5005

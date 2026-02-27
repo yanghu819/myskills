@@ -1,49 +1,31 @@
-# xiaohongshu-skills (Claude Code)
+# xiaohongshu-skills for Claude Code
 
-This skill is command-compatible with Codex.
+Install path:
 
-## Install path
-- `~/.claude/skills/xiaohongshu-skills/`
+`~/.claude/skills/xiaohongshu-skills/`
 
-## Workflow
-1. Mirror local sources
-2. Redact sensitive data and replace protected binaries with placeholders
-3. Run full smoke tests
+This skill is command-compatible with Codex. Use the exact same workflow and commands.
+
+## Standard Workflow
+
+1. Snapshot pipeline and vendor skills
+2. Redact secrets and risky binaries
+3. Run smoke tests with render + publish dry-run
 4. Backup to GitHub
-5. Verify key files by GitHub API
+5. Verify key files through GitHub API hashes
 
-## Commands
+## Command Contract (same as SKILL.md)
 
 ```bash
-cd xiaohongshu-skills
-
-bash scripts/package_snapshot.sh \
-  --source /Users/hy3/Desktop/setting/xhs-pipeline \
-  --dest ./bundle/xhs-pipeline \
-  --vendor-source ~/.codex/skills \
-  --vendor-dest ./bundle/vendor-skills
-
-python3 scripts/redact_snapshot.py \
-  --root ./bundle \
-  --report ./state/redaction_report.json
-
-bash scripts/smoke_all.sh --mode full --publish-dry-run --report ./state/smoke_report.json
-
-bash scripts/backup_git.sh \
-  --repo-owner yanghu819 \
-  --repo myskills \
-  --branch main \
-  --report ./state/backup_report.json
-
-python3 scripts/verify_github_api.py \
-  --repo-owner yanghu819 \
-  --repo myskills \
-  --ref main \
-  --checklist ./state/api_checklist.json \
-  --report ./state/api_verify_report.json
+scripts/package_snapshot.sh --source /abs/xhs-pipeline --dest ./bundle/xhs-pipeline
+scripts/redact_snapshot.py --root ./bundle --report ./state/redaction_report.json
+scripts/smoke_all.sh --mode full --publish-dry-run
+scripts/backup_git.sh --repo-owner <owner> --repo <repo> --branch codex/xiaohongshu-skills-YYYYMMDD
+scripts/verify_github_api.py --repo-owner <owner> --repo <repo> --ref main --checklist ./state/api_checklist.json
 ```
 
-## Requirements
-- `python3`, `git`, `zsh`, `bash`
-- Python deps: `pillow`, `requests`, `xhs`, `PyYAML`
-- Optional for browser cookie loading in dry-run scripts: `browser_cookie3`
+## Compatibility
+
+- No Codex-only primitives required.
+- CLI scripts are portable across Codex/Claude environments.
+- `GITHUB_TOKEN` is required for backup and API verification.
