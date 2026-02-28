@@ -22,6 +22,10 @@ Use this skill for deterministic card rendering with strong mobile readability.
    - all images are `1080x1440`
    - no overflow/tiny-text risk in report
 4. Return preview paths.
+5. **Mandatory memory update**:
+   - append run notes to `../state/YYYY-MM-DD-<topic>.md`
+   - if defaults changed, update `../LEARNINGS.md`
+   - commit + push to `main` immediately
 
 ## Design constraints
 - No nested tiny screenshots.

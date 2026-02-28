@@ -1,0 +1,42 @@
+# xhs-atomic-skills Learnings
+
+## Update Policy (Mandatory)
+
+- Every production iteration must write one run log under `state/` before publish.
+- Every run log must include: objective, winning decisions, failed decisions, next defaults.
+- When a decision repeatedly wins (>=2 runs), promote it into the corresponding `SKILL.md` default.
+- Commit message must include `xhs-learnings:` prefix when learnings are updated.
+
+## Stable Defaults (2026-02-28)
+
+### Copy
+
+- Use conversion-first rhythm for business/self-growth notes:
+  - identity hook -> pain diagnosis -> contrarian truths -> case -> anti-myth -> 3 steps -> action checklist -> CTA
+- One card = one conclusion + one action sentence.
+- First card must answer in 0.3s: for whom + what pain + what immediate gain.
+- Avoid absolute promises (`100%`, `唯一`, `暴富`, `闭眼冲`).
+
+### Visual
+
+- For Xiaohongshu 3:4 cards, readability is primary:
+  - large heading, short line length, strict line cap.
+- Prefer unified component system over decorative variety:
+  - title block, emphasis strip, evidence panel, checklist, divider.
+- Ban tiny nested infographics that become unreadable on mobile.
+
+### Rendering
+
+- Keep deterministic rendering path with direct renderer for final delivery.
+- Recommended baseline for dense Chinese copy:
+  - `--max-chars-per-line 16`
+  - `--max-lines-per-block 2`
+  - moderate scale (`font 1.14-1.18`, `heading 1.20-1.24`, `emphasis 1.24-1.30`).
+- If overflow appears, shorten copy first, then adjust scale.
+
+### Quality Gates
+
+- 10 images exactly, all `1080x1440`.
+- No line overflow, no tiny-text risk.
+- Card 9 must be checklist style (`- [ ]`).
+- Card 10 must contain executable CTA (tonight action + tomorrow review).

@@ -23,6 +23,10 @@ Use this skill to batch-produce preview-ready variants.
 4. Deliver compact preview first:
    - each variant first card + title
    - full 10-card sheet on demand
+5. **Mandatory memory update**:
+   - append variant comparison notes to `../state/YYYY-MM-DD-<topic>.md`
+   - promote stable winners into `../LEARNINGS.md`
+   - commit + push to `main`
 
 ## Output
 - `variants/<id>/xhs_post.<id>.md`

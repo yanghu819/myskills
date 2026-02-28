@@ -23,6 +23,10 @@ Use this skill for conversion-oriented copy rewrite.
 6. Save outputs:
    - final markdown for cards
    - publish copy with title variants A/B/C
+7. **Mandatory memory update**:
+   - append a run log under `../state/YYYY-MM-DD-<topic>.md`
+   - if a new winning pattern appears, promote it into `../LEARNINGS.md`
+   - commit and push to `main`
 
 ## Primary script
 - `python3 scripts/run_red_blue_mimic.py ...`

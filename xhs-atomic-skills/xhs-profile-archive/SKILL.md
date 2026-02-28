@@ -20,6 +20,10 @@ Use this skill when the user wants full-profile scraping/backup for Xiaohongshu.
    - `notes_index.json` exists
    - `notes/*/content.md`, `notes/*/comments.json`, `notes/*/images/` exist
 4. Return absolute archive path and counts.
+5. **Mandatory memory update**:
+   - append scrape stability notes to `../state/YYYY-MM-DD-<topic>.md`
+   - if retry/fallback strategy improved, update `../LEARNINGS.md`
+   - commit + push to `main`
 
 ## Output contract
 - `summary.json`: note/image/comment totals
