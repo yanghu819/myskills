@@ -79,7 +79,7 @@ def build_theme(name: str) -> Theme:
             wash_1=(234, 228, 216),
             wash_2=(224, 215, 201),
             brush_rgb=(64, 58, 50),
-            bullet_symbol="•",
+            bullet_symbol="·",
         )
     if name == "ink_wash_2d":
         return Theme(
@@ -97,7 +97,7 @@ def build_theme(name: str) -> Theme:
             wash_1=(231, 223, 208),
             wash_2=(219, 208, 190),
             brush_rgb=(49, 43, 35),
-            bullet_symbol="▪",
+            bullet_symbol="·",
         )
     return Theme(
         name="minimal_light",
@@ -114,7 +114,7 @@ def build_theme(name: str) -> Theme:
         wash_1=(230, 226, 218),
         wash_2=(220, 214, 204),
         brush_rgb=(85, 82, 78),
-        bullet_symbol="•",
+        bullet_symbol="·",
     )
 
 
@@ -806,24 +806,50 @@ def render_cover(image: Image.Image, draw: ImageDraw.ImageDraw, card: Card, them
     title = card.title or "创业维艰｜10张决策卡"
     draw_title(draw, title, 102, theme, max_lines=2)
 
-    hook = ""
+    hook_blocks: List[str] = []
     if card.emphasis:
-        hook = card.emphasis[0]
+        hook_blocks = [normalize_text(x) for x in card.emphasis[:2] if normalize_text(x)]
     elif card.paragraphs:
-        hook = card.paragraphs[0]
+        first = normalize_text(card.paragraphs[0])
+        if first:
+            hook_blocks = [first]
     elif card.bullets:
-        hook = card.bullets[0]
+        first = normalize_text(card.bullets[0])
+        if first:
+            hook_blocks = [first]
     font = load_font(58, bold=True, role="emphasis")
     y = 930
     _, line_h = text_size(draw, "中A", font)
-    for line in wrap_text(draw, hook, font, 936)[: min(2, MAX_LINES_PER_BLOCK)]:
+    hook_lines: List[str] = []
+    for block in hook_blocks:
+        for line in wrap_text(draw, block, font, 936):
+            if normalize_text(line):
+                hook_lines.append(line)
+            if len(hook_lines) >= 2:
+                break
+        if len(hook_lines) >= 2:
+            break
+    for line in hook_lines[:2]:
         draw.text((72, y), line, fill=COVER_SUBHEAD_COLOR, font=font)
         y += line_h + 10
-    if card.paragraphs:
+
+    body_paragraphs = list(card.paragraphs)
+    if not card.emphasis and body_paragraphs:
+        body_paragraphs = body_paragraphs[1:]
+    if body_paragraphs:
         body_font = load_font(38, bold=False)
-        for line in wrap_text(draw, card.paragraphs[0], body_font, 640)[:2]:
+        for line in wrap_text(draw, body_paragraphs[0], body_font, 640)[:2]:
             draw.text((72, y + 4), line, fill=theme.muted, font=body_font)
             y += text_size(draw, "中A", body_font)[1] + 6
+
+    if card.bullets:
+        blt_font = load_font(28, bold=False)
+        bullet_text = "  ·  ".join(normalize_text(x) for x in card.bullets[:4] if normalize_text(x))
+        by = max(y + 20, 1168)
+        for line in wrap_text(draw, bullet_text, blt_font, 648)[:2]:
+            draw.text((72, by), line, fill=theme.muted, font=blt_font)
+            by += text_size(draw, "中A", blt_font)[1] + 4
+
     y = draw_benefit_strip(draw, max(y + 20, 1130), theme, card.benefits)
     paste_hero_anchor(image, draw, theme, on_cover=True)
     draw_divider(draw, 1080, 1320, theme, seed)

@@ -109,3 +109,15 @@
 - Real publish fallback:
   - when `XHS_COOKIE` is absent, attempt `browser_cookie3.chrome(domain_name="xiaohongshu.com")`.
   - keep cookie in-memory only; never commit to files.
+
+## Claude Opus Structured Refine (2026-03-02)
+
+- For high-hook business cards, structured markers improve both readability and conversion:
+  - `!!!` for one strong claim per card
+  - `@@proof:` for factual/evidence strip
+  - `@@benefit:` for bottom recall chips
+  - `- [ ]` for actionable checklist cards
+- Glyph compatibility fix:
+  - use `·` instead of `•` for bullets in direct renderer themes to avoid square fallback on some CJK font combinations.
+- Quote card stability:
+  - keep quote copy short (<= 14 Chinese chars per visual line equivalent) to avoid clipping under high emphasis scale.
