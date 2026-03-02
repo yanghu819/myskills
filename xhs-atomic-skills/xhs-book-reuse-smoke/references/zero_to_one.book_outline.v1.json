@@ -1,0 +1,94 @@
+{
+  "book_meta": {
+    "title": "从0到1",
+    "author": "Peter Thiel",
+    "language": "zh"
+  },
+  "chapters": [
+    {
+      "id": "ch01",
+      "title": "做别人没做过的事",
+      "core_thesis": "真正的价值来自从0到1，而不是在既有赛道里做1到N的复制。",
+      "key_points": [
+        "竞争会压缩利润，垄断才有能力长期创新。",
+        "创业不是追热点，而是创造新类别。",
+        "先定义你要解决的独特问题，再谈增长。"
+      ],
+      "evidence_or_case": "PayPal 先服务小众高价值人群，再扩展支付场景。",
+      "quote": "Competition is for losers.",
+      "action_items": [
+        "写下你所在行业被默认接受但你不同意的一条规则",
+        "定义一个只有你团队能先解决的窄问题",
+        "为这个问题设计一个10倍价值假设"
+      ]
+    },
+    {
+      "id": "ch02",
+      "title": "秘密与反共识",
+      "core_thesis": "伟大的公司建立在一个重要秘密之上：你看见了别人没看见的真相。",
+      "key_points": [
+        "反共识不是抬杠，而是基于证据的非主流判断。",
+        "好问题是：哪些重要真相很少人同意你？",
+        "先小范围验证，再扩大赌注。"
+      ],
+      "evidence_or_case": "Facebook 先聚焦校园实名社交，而不是一开始做全网平台。",
+      "quote": "What important truth do very few people agree with you on?",
+      "action_items": [
+        "列出3条你认为行业共识但实际低效的做法",
+        "选择1条可在7天内验证的反共识假设",
+        "为验证设计最小成本实验"
+      ]
+    },
+    {
+      "id": "ch03",
+      "title": "先垄断后扩张",
+      "core_thesis": "先在小市场做到垄断，再逐步扩展到相关市场，比一开始追大市场更稳。",
+      "key_points": [
+        "小市场更容易建立壁垒和口碑。",
+        "过早扩张会拉高成本并稀释执行力。",
+        "扩张顺序应围绕核心能力外延。"
+      ],
+      "evidence_or_case": "Amazon 从图书切入，建立物流与供应链能力后再扩展品类。",
+      "quote": "Start small and monopolize.",
+      "action_items": [
+        "定义你当前最小可垄断市场",
+        "写清进入该市场的3个壁垒",
+        "设定扩张前必须达成的2个里程碑"
+      ]
+    },
+    {
+      "id": "ch04",
+      "title": "销售同样重要",
+      "core_thesis": "技术和产品只是起点，分发与销售系统决定公司能否活下来。",
+      "key_points": [
+        "最好的产品也需要匹配的销售机制。",
+        "客单价越高，越需要系统化销售流程。",
+        "创始人必须亲自构建早期销售闭环。"
+      ],
+      "evidence_or_case": "Palantir 通过高触达销售和深度部署拿下关键客户。",
+      "quote": "If you’ve invented something new but you haven’t invented an effective way to sell it, you have a bad business.",
+      "action_items": [
+        "画出从获客到成交的完整漏斗",
+        "找出当前漏斗里转化最低的一环",
+        "本周只优化这一环并记录结果"
+      ]
+    },
+    {
+      "id": "ch05",
+      "title": "人和组织",
+      "core_thesis": "创业公司成败往往先取决于团队和治理，再取决于策略。",
+      "key_points": [
+        "早期团队要价值观一致且高信任。",
+        "股权与激励必须对齐长期目标。",
+        "管理结构越清晰，执行摩擦越小。"
+      ],
+      "evidence_or_case": "PayPal Mafia 的早期团队协同与信任成为后续连续创业土壤。",
+      "quote": "A startup messed up at its foundation cannot be fixed.",
+      "action_items": [
+        "明确每位核心成员的唯一职责",
+        "对齐短期目标与长期激励",
+        "建立每周一次的事实+判断+下一步同步"
+      ]
+    }
+  ]
+}

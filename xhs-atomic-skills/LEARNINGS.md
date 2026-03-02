@@ -40,3 +40,28 @@
 - No line overflow, no tiny-text risk.
 - Card 9 must be checklist style (`- [ ]`).
 - Card 10 must contain executable CTA (tonight action + tomorrow review).
+
+## Reusable Book Swap (2026-03-02)
+
+- To validate pipeline portability for a new book, prefer one deterministic smoke command over manual multi-command runs.
+- Stable smoke sequence:
+  1. validate outline
+  2. build compact evidence assets
+  3. generate `xhs_post.v2.md`
+  4. direct render 10 cards
+  5. manifest + dimension verification
+- Recommended readability defaults for smoke:
+  - `font-scale=1.18`
+  - `heading-scale=1.24`
+  - `emphasis-scale=1.30`
+  - `max-lines-per-block=2`
+  - `max-chars-per-line=16`
+
+## Persona Anchors (2026-03-02)
+
+- Keep persona rendering as an explicit smoke preset instead of ad-hoc flags.
+- Stable founder-cover defaults:
+  - `preset=hard_thing_persona`
+  - `theme=editorial_unified_v1`
+  - `hero-anchor-mode=cover`
+- If anchor file is missing, continue render in no-anchor mode and emit warning (do not hard-fail smoke).
