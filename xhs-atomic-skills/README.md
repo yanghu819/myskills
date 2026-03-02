@@ -10,6 +10,7 @@ Atomic skills for Xiaohongshu workflows: archive, copy iteration, direct renderi
 - `xhs-variants-preview`: multi-version generation and preview sheets
 - `xhs-book-reuse-smoke`: swap-in new `book_outline.v1.json` and run full smoke (assets -> md -> 10 cards -> manifest verification)
   - includes `zero_to_one` and `hard_thing_persona` presets for fast reuse
+- `xhs-cdp-ops`: ops-grade runtime safety patterns (single-instance lock + CLI smoke) learned from external XHS CDP tooling
 
 ## Immediate Backup Rule
 

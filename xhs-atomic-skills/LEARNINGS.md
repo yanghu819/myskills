@@ -65,3 +65,18 @@
   - `theme=editorial_unified_v1`
   - `hero-anchor-mode=cover`
 - If anchor file is missing, continue render in no-anchor mode and emit warning (do not hard-fail smoke).
+
+## Ops Stability Borrow (2026-03-02)
+
+- Borrowed from `white0dew/XiaohongshuSkills`:
+  - single-instance lock is a high ROI baseline for all long-running XHS scripts.
+- Promoted default:
+  - all high-frequency scripts must guard with `single_instance(...)` and return a clear lock-conflict exit code.
+- First rollout covered:
+  - `run_red_blue_mimic.py`
+  - `generate_xhs_variants.py`
+  - `download_xhs_profile_archive.py`
+  - `download_xhs_profile_full.py`
+- Next recommended borrow:
+  - login status TTL cache
+  - structured JSON result envelope for every ops command
