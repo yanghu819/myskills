@@ -11,22 +11,18 @@
 
 - Single-instance runtime locking for high-frequency scripts.
 - Explicit lock-conflict exit handling.
+- Login TTL cache and lightweight session check fallback.
+- Structured `*_RESULT` output and optional CSV export.
 
 ## Not yet aligned (next iteration candidates)
 
 1. Unified CDP ops command set
 - `check-login`, `search-feeds`, `get-feed-detail`, `post-comment-to-feed`, `content-data`.
 
-2. Login cache TTL
-- Skip redundant login checks during repeated runs.
+2. Unified CDP ops command set
+- `check-login`, `search-feeds`, `get-feed-detail`, `post-comment-to-feed`, `content-data`.
 
-3. Structured ops result envelopes
-- Stable JSON schema for downstream automation.
-
-4. CSV-first metrics export
-- Unified analytics ingestion from content data APIs.
-
-5. Remote CDP host/port mode
+3. Remote CDP host/port mode
 - Useful when browser and control plane are separated.
 
 ## Recommendation

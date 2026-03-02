@@ -14,11 +14,19 @@
   - `download_xhs_profile_archive.py`
   - `download_xhs_profile_full.py`
 
+3. Positive login TTL cache
+- Cache login-success checks for repeated ops commands.
+- Implemented via `xhs-pipeline/scripts/xhs_ops_common.py` and applied to archive/full profile download scripts.
+
+4. Structured result envelope + CSV output
+- Emit `*_RESULT` JSON payloads for machine-readable downstream use.
+- Optional `--csv-file` for index exports.
+- Applied to profile download scripts; `--result-json` added to variant/redblue scripts.
+
 ## High-value patterns to adopt next
 
 1. Login status cache with TTL
 - Avoids repeated expensive login checks during batch ops.
-
 2. Timing jitter for anti-rigid automation behavior
 - Adds bounded random delays to avoid deterministic action rhythm.
 

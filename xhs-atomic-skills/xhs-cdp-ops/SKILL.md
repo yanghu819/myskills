@@ -12,16 +12,22 @@ This skill captures operational patterns learned from production-style XHS CDP t
 - Runtime safety:
   - single-instance lock to prevent concurrent script collisions
   - clear exit code `3` for lock conflicts
+- Login stability:
+  - positive login TTL cache (default 12h)
+  - lightweight session verification with fallback strategy
 - CLI discipline:
   - consistent `--help` contracts
   - predictable script entry points
 - Ops workflow:
   - profile archive pipeline checks
   - render/copy iteration command sanity checks
+  - structured `*_RESULT` JSON output for downstream automation
+  - optional CSV export for index/analytics
 
 ## Local scripts covered
 
 - `/Users/hy3/Desktop/setting/xhs-pipeline/scripts/run_lock.py`
+- `/Users/hy3/Desktop/setting/xhs-pipeline/scripts/xhs_ops_common.py`
 - `/Users/hy3/Desktop/setting/xhs-pipeline/scripts/run_red_blue_mimic.py`
 - `/Users/hy3/Desktop/setting/xhs-pipeline/scripts/generate_xhs_variants.py`
 - `/Users/hy3/Desktop/setting/xhs-pipeline/scripts/download_xhs_profile_archive.py`

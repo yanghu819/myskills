@@ -78,5 +78,19 @@
   - `download_xhs_profile_archive.py`
   - `download_xhs_profile_full.py`
 - Next recommended borrow:
-  - login status TTL cache
-  - structured JSON result envelope for every ops command
+  - unified CDP ops command taxonomy (`check-login/search/detail/comment/content-data`)
+
+## Ops Stability Borrow v2 (2026-03-02)
+
+- Implemented `xhs_ops_common.py` shared helper:
+  - positive login cache (`--login-cache-ttl-hours`, default 12h)
+  - lightweight session verification + fallback on transient request errors
+  - shared CSV writer
+- Added structured machine-readable output:
+  - `DOWNLOAD_PROFILE_ARCHIVE_RESULT`
+  - `DOWNLOAD_PROFILE_FULL_RESULT`
+  - `GENERATE_XHS_VARIANTS_RESULT`
+  - `RUN_RED_BLUE_MIMIC_RESULT`
+- Added optional output contracts:
+  - `--csv-file` for profile archive/full index export
+  - `--result-json` for redblue/variants payload export
