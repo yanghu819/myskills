@@ -94,3 +94,18 @@
 - Added optional output contracts:
   - `--csv-file` for profile archive/full index export
   - `--result-json` for redblue/variants payload export
+
+## Unified Publish Chain (2026-03-02)
+
+- Manifest compatibility is a real footgun:
+  - `build_render_manifest.py` emits `images`
+  - some publish scripts expect `cards + output_dir`
+  - safe default is to resolve absolute image paths before publish.
+- macOS portability default:
+  - avoid `mapfile/readarray` in shell scripts (bash 3.2 on macOS).
+  - use `while IFS= read -r ...` to build arrays.
+- Dry-run publish should remain executable without credential setup:
+  - inject placeholder cookie only in dry-run mode.
+- Real publish fallback:
+  - when `XHS_COOKIE` is absent, attempt `browser_cookie3.chrome(domain_name="xiaohongshu.com")`.
+  - keep cookie in-memory only; never commit to files.

@@ -1,0 +1,45 @@
+{
+  "unified_root": "/Users/hy3/Desktop/setting/myskills/xiaohongshu-unified",
+  "skills": [
+    {
+      "name": "xhs-book-reuse-smoke",
+      "path": "/Users/hy3/Desktop/setting/myskills/xhs-atomic-skills/xhs-book-reuse-smoke",
+      "capability": "outline->assets->md->10cards smoke"
+    },
+    {
+      "name": "xhs-direct-render",
+      "path": "/Users/hy3/Desktop/setting/myskills/xhs-atomic-skills/xhs-direct-render",
+      "capability": "deterministic direct render with large text"
+    },
+    {
+      "name": "xhs-copy-redblue",
+      "path": "/Users/hy3/Desktop/setting/myskills/xhs-atomic-skills/xhs-copy-redblue",
+      "capability": "red/blue copy iteration for conversion"
+    },
+    {
+      "name": "xhs-variants-preview",
+      "path": "/Users/hy3/Desktop/setting/myskills/xhs-atomic-skills/xhs-variants-preview",
+      "capability": "multi-variant generation and preview sheets"
+    },
+    {
+      "name": "xhs-profile-archive",
+      "path": "/Users/hy3/Desktop/setting/myskills/xhs-atomic-skills/xhs-profile-archive",
+      "capability": "profile archive: title/content/comments/media"
+    },
+    {
+      "name": "xiaohongshu-skills",
+      "path": "/Users/hy3/Desktop/setting/myskills/xiaohongshu-skills",
+      "capability": "codex+claude compatible full bundle"
+    },
+    {
+      "name": "book-xhs-carousel",
+      "path": "/Users/hy3/Desktop/setting/myskills/book-xhs-carousel",
+      "capability": "book-oriented xhs carousel generation"
+    },
+    {
+      "name": "insightgo-xhs-render",
+      "path": "/Users/hy3/Desktop/setting/myskills/insightgo-xhs-render",
+      "capability": "insightgo style rendering utilities"
+    }
+  ]
+}
